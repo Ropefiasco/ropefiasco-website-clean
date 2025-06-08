@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RopeFiasco</title>
+    <!-- Tailwind CSS CDN for easy styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom font family to ensure Inter is used as per instructions */
@@ -18,64 +19,68 @@
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col">
 
+    <!-- Navigation Bar -->
     <nav class="bg-gray-100 p-4 shadow-md rounded-b-lg">
         <div class="container mx-auto flex justify-center space-x-8">
             <a href="#home" class="text-black hover:text-gray-700 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Home</a>
             <a href="#stuff" class="text-black hover:text-gray-700 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Stuff</a>
             <a href="#music" class="text-black hover:text-gray-700 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Music</a>
-            </div>
+        </div>
     </nav>
 
+    <!-- Main Content Area -->
     <main class="flex-grow">
+        <!-- Home Section - Reverted to original as requested -->
         <section id="home" class="full-height-content flex items-center justify-center h-screen bg-white">
             <p class="font-sans text-xs text-black">RopeFiasco</p>
         </section>
 
+        <!-- Stuff Section -->
         <section id="stuff" class="p-8 md:p-16 bg-gray-50 flex items-center justify-center min-h-screen">
-            <div class="container mx-auto text-center p-8 bg-white shadow-lg rounded-lg max-w-2xl">
-                <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Stuff</h2>
-                <p class="text-gray-700 text-lg mb-4">
-                    Explore our collection of thoughtfully designed products and services.
-                    We focus on quality, comfort, and providing value in everything we offer.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                    <div class="bg-gray-100 p-6 rounded-md shadow-sm">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Hoodie</h3>
-                        <p class="text-gray-600">
-                            Our premium hoodie, crafted for ultimate comfort and style.
-                            Perfect for any casual occasion or a cozy evening in.
-                        </p>
-                        <img src="https://placehold.co/300x200/e0e0e0/000000?text=Hoodie+Image" alt="Hoodie" class="w-full h-auto rounded-md mt-4">
+            <div class="container mx-auto text-center p-8 bg-white shadow-lg rounded-lg max-w-4xl">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">Stuff</h2>
+                <!-- Removed description for "Our Stuff" -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <!-- Hoodie Product -->
+                    <div class="bg-gray-100 p-6 rounded-md shadow-sm flex flex-col items-center">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Uniform</h3>
+                        <img src="images/hoodie.jpg" alt="Blue Hoodie" class="w-full h-auto rounded-md object-cover max-h-64 sm:max-h-80">
+                        <!-- Removed "Available in multiple sizes and colors!" -->
                     </div>
-                    <div class="bg-gray-100 p-6 rounded-md shadow-sm">
+                    <!-- Sports Consulting Service -->
+                    <div class="bg-gray-100 p-6 rounded-md shadow-sm flex flex-col items-center">
                         <h3 class="text-xl font-semibold mb-2 text-gray-900">Sports Consulting</h3>
-                        <p class="text-gray-600">
-                            Expert sports consulting services to help you achieve your athletic goals.
-                            Personalized strategies and guidance for peak performance.
-                        </p>
-                        <img src="https://placehold.co/300x200/e0e0e0/000000?text=Sports+Consulting" alt="Sports Consulting" class="w-full h-auto rounded-md mt-4">
+                        <img src="images/sports-consulting.jpg" alt="Basketball Player" class="w-full h-auto rounded-md object-cover max-h-64 sm:max-h-80">
+                        <!-- Removed "Book a free introductory call today!" -->
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Music Section -->
         <section id="music" class="p-8 md:p-16 bg-white flex items-center justify-center min-h-screen">
             <div class="container mx-auto text-center p-8 bg-gray-50 shadow-lg rounded-lg max-w-2xl">
-                <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Music</h2>
-                <p class="text-gray-700 text-lg mb-4">
-                    Tune into the sounds we love. Here's a link to our curated Apple Music playlist:
-                </p>
-                <a href="#" class="text-blue-600 hover:text-blue-800 underline text-lg font-semibold" target="_blank" rel="noopener noreferrer">
-                    Link to Apple Music Playlist
-                </a>
-                <p class="text-gray-600 text-sm mt-2">
-                    (Remember to replace '#' with your actual Apple Music playlist URL)
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">Soundtrack to My Life</h2>
+                <!-- Removed description for Music section -->
+                <div class="w-full max-w-full overflow-hidden rounded-lg shadow-md mt-6" style="height: 450px;">
+                    <iframe 
+                        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+                        frameborder="0" 
+                        height="100%" 
+                        width="100%"
+                        style="overflow:hidden;background:transparent;" 
+                        sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation" 
+                        src="https://embed.music.apple.com/us/playlist/great-darkness/pl.u-KVXBq0VCz66AEy?app=music">
+                    </iframe>
+                </div>
+                <p class="text-gray-600 text-sm mt-4">
+                    Enjoy the vibes! This playlist features a blend of atmospheric and intense tracks.
                 </p>
             </div>
         </section>
+    </main>
 
-        </main>
-
+    <!-- Optional: Footer -->
     <footer class="bg-gray-100 p-4 text-center text-gray-600 rounded-t-lg shadow-inner">
         <p>&copy; 2025 RopeFiasco. All rights reserved.</p>
     </footer>
