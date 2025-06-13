@@ -17,70 +17,72 @@
         }
     </style>
 </head>
-<body class="bg-white text-black min-h-screen flex flex-col">
+<body class="bg-black text-gray-200 min-h-screen flex flex-col">
 
     <!-- Navigation Bar -->
-    <nav class="bg-gray-100 p-4 shadow-md rounded-b-lg">
+    <nav class="bg-gray-900 p-4 shadow-md rounded-b-lg">
         <div class="container mx-auto flex justify-center space-x-8">
-            <a href="#home" class="text-black hover:text-gray-700 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Home</a>
-            <a href="#stuff" class="text-black hover:text-gray-700 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Stuff</a>
-            <a href="#music" class="text-black hover:text-gray-700 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Music</a>
+            <a href="#home" class="text-white hover:text-gray-400 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Home</a>
+            <a href="#stuff" class="text-white hover:text-gray-400 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Products</a>
+            <a href="#music" class="text-white hover:text-gray-400 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Music</a>
         </div>
     </nav>
 
     <!-- Main Content Area -->
     <main class="flex-grow">
-        <!-- Home Section - Reverted to original as requested -->
-        <section id="home" class="full-height-content flex items-center justify-center h-screen bg-white">
-            <p class="font-sans text-xs text-black">RopeFiasco</p>
+        <!-- Home Section -->
+        <section id="home" class="full-height-content flex flex-col items-center justify-center h-screen bg-black text-center px-4">
+            <!-- Enlarge "RopeFiasco" -->
+            <h1 class="font-sans text-7xl md:text-8xl font-extrabold text-white mb-6">RopeFiasco</h1>
+            <!-- Add the quote -->
+            <p class="font-serif italic text-xl md:text-2xl text-gray-400 max-w-2xl leading-relaxed">
+                "The willingness to be a fool is the precursor to transformation"
+            </p>
         </section>
 
-        <!-- Stuff Section -->
-        <section id="stuff" class="p-8 md:p-16 bg-gray-50 flex items-center justify-center min-h-screen">
-            <div class="container mx-auto text-center p-8 bg-white shadow-lg rounded-lg max-w-4xl">
-                <h2 class="text-3xl font-bold mb-6 text-gray-800">Stuff</h2>
-                <!-- Removed description for "Our Stuff" -->
+        <!-- Products Section -->
+        <section id="stuff" class="p-8 md:p-16 bg-gray-900 flex items-center justify-center min-h-screen">
+            <div class="container mx-auto text-center p-8 bg-gray-800 shadow-lg rounded-lg max-w-4xl">
+                <h2 class="text-3xl font-bold mb-6 text-white">Products</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <!-- Hoodie Product -->
-                    <div class="bg-gray-100 p-6 rounded-md shadow-sm flex flex-col items-center">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Uniform</h3>
-                        <img src="images/hoodie.jpg" alt="Blue Hoodie" class="w-full h-auto rounded-md object-cover max-h-64 sm:max-h-80">
-                        <!-- Removed "Available in multiple sizes and colors!" -->
-                    </div>
+                    <!-- Mini Hoop Product -->
+                    <a href="mini-hoop.html" class="block bg-gray-700 p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-200 flex flex-col items-center">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Mini Hoop</h3>
+                        <img src="images/minihoop.jpg" alt="Mini Basketball Hoop" class="w-full h-auto rounded-md object-cover max-h-64 sm:max-h-80">
+                    </a>
                     <!-- Sports Consulting Service -->
-                    <div class="bg-gray-100 p-6 rounded-md shadow-sm flex flex-col items-center">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Sports Consulting</h3>
+                    <a href="consulting.html" class="block bg-gray-700 p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-200 flex flex-col items-center">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Sports Consulting</h3>
                         <img src="images/sports-consulting.jpg" alt="Basketball Player" class="w-full h-auto rounded-md object-cover max-h-64 sm:max-h-80">
-                        <!-- Removed "Book a free introductory call today!" -->
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Music Section -->
-        <section id="music" class="p-8 md:p-16 bg-white flex items-center justify-center min-h-screen">
-            <div class="container mx-auto text-center p-8 bg-gray-50 shadow-lg rounded-lg max-w-2xl">
-                <h2 class="text-3xl font-bold mb-6 text-gray-800">Soundtrack to My Life</h2>
-                <!-- Removed description for Music section -->
+        <section id="music" class="p-8 md:p-16 bg-black flex items-center justify-center min-h-screen">
+            <div class="container mx-auto text-center p-8 bg-gray-800 shadow-lg rounded-lg max-w-2xl">
+                <h2 class="text-3xl font-bold mb-6 text-white">Soundtrack to My Life</h2>
                 <div class="w-full max-w-full overflow-hidden rounded-lg shadow-md mt-6" style="height: 450px;">
-                    <iframe 
-                        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
-                        frameborder="0" 
-                        height="100%" 
+                    <iframe
+                        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                        frameborder="0"
+                        height="100%"
                         width="100%"
-                        style="overflow:hidden;background:transparent;" 
-                        sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation" 
+                        style="overflow:hidden;background:transparent;"
+                        sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation"
                         src="https://embed.music.apple.com/us/playlist/great-darkness/pl.u-KVXBq0VCz66AEy?app=music">
                     </iframe>
                 </div>
-      
+                <p class="text-gray-400 text-sm mt-4">
+                    Enjoy the vibes! This playlist features a blend of atmospheric and intense tracks.
                 </p>
             </div>
         </section>
     </main>
 
     <!-- Optional: Footer -->
-    <footer class="bg-gray-100 p-4 text-center text-gray-600 rounded-t-lg shadow-inner">
+    <footer class="bg-gray-900 p-4 text-center text-gray-400 rounded-t-lg shadow-inner">
         <p>&copy; 2025 RopeFiasco. All rights reserved.</p>
     </footer>
 
