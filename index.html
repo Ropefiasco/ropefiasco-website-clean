@@ -3,88 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RopeFiasco</title>
-    <!-- Tailwind CSS CDN for easy styling -->
+    <title>Ropefiasco</title>
+    <meta name="description" content="Ropefiasco - Portfolio">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        /* Custom font family to ensure Inter is used as per instructions */
+        /* Base overrides for that specific ultra-minimal feel */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4; /* Main background light gray/white */
+            color: #111111; /* Default text color to black */
         }
-        /* Ensure the main content area takes full height for vertical centering */
-        .full-height-content {
-            min-height: calc(100vh - 64px); /* Subtract nav height if fixed, or simply use h-screen on the parent */
+        /* Subtle transition for all hover effects */
+        .hover-trigger {
+            transition: all 0.5s ease-in-out;
         }
     </style>
+    <script>
+        // Tailwind config to ensure consistent, muted color palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theme-black': '#111111',
+                        'theme-gray': '#f4f4f4',
+                        'theme-text': '#111111',
+                        'theme-subtle': '#6b7280', /* For subtle text like copyright */
+                    },
+                    letterSpacing: {
+                        'ultra-wide': '0.25em',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-black text-gray-200 min-h-screen flex flex-col">
+<body class="antialiased">
 
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-900 p-4 shadow-md rounded-b-lg">
-        <div class="container mx-auto flex justify-center space-x-8">
-            <a href="#home" class="text-white hover:text-gray-400 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Home</a>
-            <a href="#stuff" class="text-white hover:text-gray-400 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Products</a>
-            <a href="#music" class="text-white hover:text-gray-400 font-semibold text-lg py-2 px-4 rounded-md transition-colors duration-200">Music</a>
-        </div>
-    </nav>
-
-    <!-- Main Content Area -->
-    <main class="flex-grow">
-        <!-- Home Section -->
-        <section id="home" class="full-height-content flex flex-col items-center justify-center h-screen bg-black text-center px-4">
-            <!-- Enlarge "RopeFiasco" -->
-            <h1 class="font-sans text-7xl md:text-8xl font-extrabold text-white mb-6">RopeFiasco</h1>
-            <!-- Add the quote -->
-            <p class="font-serif italic text-xl md:text-2xl text-gray-400 max-w-2xl leading-relaxed">
-                "The willingness to be a fool is the precursor to transformation"
-            </p>
-        </section>
-
-        <!-- Products Section -->
-        <section id="stuff" class="p-8 md:p-16 bg-gray-900 flex items-center justify-center min-h-screen">
-            <div class="container mx-auto text-center p-8 bg-gray-800 shadow-lg rounded-lg max-w-4xl">
-                <h2 class="text-3xl font-bold mb-6 text-white">Products</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <!-- Mini Hoop Product -->
-                    <a href="mini-hoop.html" class="block bg-gray-700 p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-200 flex flex-col items-center">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Mini Hoop</h3>
-                        <img src="images/minihoop.jpg" alt="Mini Basketball Hoop" class="w-full h-auto rounded-md object-cover max-h-64 sm:max-h-80">
-                    </a>
-                    <!-- Sports Consulting Service -->
-                    <a href="consulting.html" class="block bg-gray-700 p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-200 flex flex-col items-center">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Sports Consulting</h3>
-                        <img src="images/sports-consulting.jpg" alt="Basketball Player" class="w-full h-auto rounded-md object-cover max-h-64 sm:max-h-80">
-                    </a>
-                </div>
+    <!-- 
+      SINGLE-PAGE, CONTENT-FIRST LAYOUT
+      - Main container is a flex column, guaranteeing a minimum height of the screen
+      - It will grow/scroll if content is too long.
+    -->
+    <main class="relative min-h-screen p-6 md:p-12 flex flex-col text-theme-text">
+        
+        <!-- NAVIGATION -->
+        <!-- Uses justify-between to push Ropefiasco (left) and links (right) apart -->
+        <nav class="flex justify-between items-center mb-8 md:mb-12">
+            <a href="#" class="text-xs uppercase tracking-widest font-medium hover-trigger hover:text-gray-500">Ropefiasco</a>
+            <div class="flex space-x-12 text-xs uppercase tracking-widest font-medium">
+                <a href="#work" class="hover-trigger hover:text-gray-500">Invest</a>
+                <a href="#apparel" class="hover-trigger hover:text-gray-500">Apparel</a>
             </div>
-        </section>
+        </nav>
 
-        <!-- Music Section -->
-        <section id="music" class="p-8 md:p-16 bg-black flex items-center justify-center min-h-screen">
-            <div class="container mx-auto text-center p-8 bg-gray-800 shadow-lg rounded-lg max-w-2xl">
-                <h2 class="text-3xl font-bold mb-6 text-white">Soundtrack to My Life</h2>
-                <div class="w-full max-w-full overflow-hidden rounded-lg shadow-md mt-6" style="height: 450px;">
-                    <iframe
-                        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-                        frameborder="0"
-                        height="100%"
-                        width="100%"
-                        style="overflow:hidden;background:transparent;"
-                        sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation"
-                        src="https://embed.music.apple.com/us/playlist/great-darkness/pl.u-KVXBq0VCz66AEy?app=music">
-                    </iframe>
-                </div>
-                <p class="text-gray-400 text-sm mt-4">
-                    Enjoy the vibes! This playlist features a blend of atmospheric and intense tracks.
+        <!-- WORK / NARRATIVE SECTION -->
+        <!-- 
+          - flex-grow makes this div expand to fill all available vertical space
+            between the nav and the footer.
+          - It's also a flex container to center its child.
+        -->
+        <div id="work" class="max-w-xl mx-auto flex-grow flex items-center py-12 md:py-20">
+            
+            <!-- Increased spacing between paragraphs (space-y-10) -->
+            <div class="space-y-10 text-lg md:text-xl">
+                <p>
+                    I'm currently building <span class="font-medium">ACE (Athlete Capital Exchange)</span> — a regulated FinTech protocol designed to solve the financial crisis for athletes. It provides compliant, on-chain lending against Tokenized Athlete Income Streams (TAIS), transforming future earnings into liquid capital.
+                </p>
+                <p>
+                    My professional background is the foundation for this initiative. With experience spanning Wealth Management at Merrill Lynch, Commercial Credit, and Major Gifts Fundraising for D1 athletics, I saw a recurring gap: athletes gain income but lack the regulated financial infrastructure to manage and leverage it.
+                </p>
+                <p id="apparel">
+                    Alongside this, I am developing a minimalist apparel line, focusing on essential forms and premium materials.
+                </p>
+                <p>
+                    Prior to all of this, I was a Division I athlete at Clemson University. This unique blend of finance and high-performance sports informs a central theme in all my work: creating new opportunities for others.
                 </p>
             </div>
-        </section>
+        </div>
+
+        <!-- FOOTER / CONTACT (Integrated into content column) -->
+        <!-- Sits at the bottom of the flex column -->
+        <footer id="contact" class="mt-8 pt-8 border-t border-black/20">
+            <div class="max-w-xl mx-auto">
+                <div class="flex flex-col sm:flex-row justify-between items-start">
+                    <div class="mb-6 sm:mb-0">
+                        <h2 class="text-xl font-bold tracking-tighter uppercase mb-2">
+                            Let's Talk.
+                        </h2>
+                        <a href="mailto:ropefiasco@gmail.com" class="text-sm border-b border-black/30 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">
+                            ropefiasco@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="flex flex-col sm:items-end space-y-4">
+                        <div class="flex space-x-8 text-xs uppercase tracking-widest">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">Instagram</a>
+                            <a href="https://www.linkedin.com/in/jordan-roper-b525346a" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">LinkedIn</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">Twitter</a>
+                        </div>
+                        <p class="text-xs text-theme-subtle uppercase tracking-widest">
+                            Made in South Carolina
+                        </p>
+                        <p class="text-xs text-theme-subtle uppercase tracking-widest">
+                            © 2025 Ropefiasco. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
 
-    <!-- Optional: Footer -->
-    <footer class="bg-gray-900 p-4 text-center text-gray-400 rounded-t-lg shadow-inner">
-        <p>&copy; 2025 RopeFiasco. All rights reserved.</p>
-    </footer>
+    <!-- No JavaScript is needed for this static layout -->
 
 </body>
 </html>
