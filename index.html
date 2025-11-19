@@ -10,22 +10,34 @@
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Base overrides for that specific ultra-minimal feel */
+        /* Base overrides */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f4f4; /* Main background light gray/white */
-            color: #111111; /* Default text color to black */
+            background-color: #f4f4f4;
+            color: #111111;
         }
-        /* Subtle transition for all hover effects */
-        .hover-trigger {
-            transition: all 0.5s ease-in-out;
+        
+        .hover-trigger { transition: all 0.5s ease-in-out; }
+
+        /* Floating Animation for Hoodie */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        /* Pixel Art Style */
+        .pixel-art { image-rendering: pixelated; shape-rendering: crispEdges; }
+        .pixel-text { letter-spacing: 0.5em; }
+
+        /* Utility to hide sections */
+        .hidden-view { display: none !important; }
     </style>
     <script>
-        // Tailwind config to ensure consistent, muted color palette
         tailwind.config = {
             theme: {
                 extend: {
@@ -33,54 +45,41 @@
                         'theme-black': '#111111',
                         'theme-gray': '#f4f4f4',
                         'theme-text': '#111111',
-                        'theme-subtle': '#6b7280', /* For subtle text like copyright */
+                        'theme-subtle': '#6b7280',
+                        'theme-orange': '#FF6B00',
                     },
-                    letterSpacing: {
-                        'ultra-wide': '0.25em',
-                    }
+                    letterSpacing: { 'ultra-wide': '0.25em' }
                 }
             }
         }
     </script>
 </head>
-<body class="antialiased">
+<body class="antialiased min-h-screen flex flex-col">
 
-    <!-- 
-      SINGLE-PAGE, CONTENT-FIRST LAYOUT
-      - Main container is a flex column, guaranteeing a minimum height of the screen
-      - It will grow/scroll if content is too long.
-    -->
-    <main class="relative min-h-screen p-6 md:p-12 flex flex-col text-theme-text">
+    <!-- NAVIGATION -->
+    <nav class="flex justify-between items-center p-6 md:p-12">
+        <!-- Clicking Logo goes to Home View -->
+        <a href="#home" onclick="showHome()" class="text-xs uppercase tracking-widest font-medium hover-trigger hover:text-gray-500 cursor-pointer">Ropefiasco</a>
         
-        <!-- NAVIGATION -->
-        <!-- Uses justify-between to push Ropefiasco (left) and links (right) apart -->
-        <nav class="flex justify-between items-center mb-8 md:mb-12">
-            <!-- Updated link to point to the main page (index.html) -->
-            <a href="index.html" class="text-xs uppercase tracking-widest font-medium hover-trigger hover:text-gray-500">Ropefiasco</a>
-            <div class="flex space-x-12 text-xs uppercase tracking-widest font-medium">
-                <!-- Updated links to point to anchor tags on the same page -->
-                <a href="#work" class="hover-trigger hover:text-gray-500">Invest</a>
-                <a href="#apparel" class="hover-trigger hover:text-gray-500">Apparel</a>
-            </div>
-        </nav>
+        <div class="flex space-x-12 text-xs uppercase tracking-widest font-medium">
+            <!-- Switches to Investing View -->
+            <a href="#invest" onclick="showHome()" class="hover-trigger hover:text-gray-500 cursor-pointer">Invest</a>
+            <!-- Switches to Apparel View -->
+            <a href="#apparel" onclick="showApparel()" class="hover-trigger hover:text-gray-500 cursor-pointer">Apparel</a>
+        </div>
+    </nav>
 
-        <!-- WORK / NARRATIVE SECTION -->
-        <!-- 
-          - flex-grow makes this div expand to fill all available vertical space
-            between the nav and the footer.
-          - It's also a flex container to center its child.
-        -->
-        <div id="work" class="max-w-xl mx-auto flex-grow flex items-center py-12 md:py-20">
-            
-            <!-- Increased spacing between paragraphs (space-y-10) -->
-            <div class="space-y-10 text-lg md:text-xl">
+    <!-- VIEW 1: INVESTING / HOME (Default) -->
+    <div id="home-view" class="flex-grow flex flex-col p-6 md:p-12 pt-0 md:pt-0 transition-opacity duration-500">
+        <div class="max-w-xl mx-auto flex-grow flex items-center py-12 md:py-20">
+            <div class="space-y-10 text-lg md:text-xl font-light leading-relaxed">
                 <p>
                     I'm currently building <span class="font-medium">ACE (Athlete Capital Exchange)</span> — a regulated FinTech protocol designed to solve the financial crisis for athletes. It provides compliant, on-chain lending against Tokenized Athlete Income Streams (TAIS), transforming future earnings into liquid capital.
                 </p>
                 <p>
                     My professional background is the foundation for this initiative. With experience spanning Wealth Management at Merrill Lynch, Commercial Credit, and Major Gifts Fundraising for D1 athletics, I saw a recurring gap: athletes gain income but lack the regulated financial infrastructure to manage and leverage it.
                 </p>
-                <p id="apparel">
+                <p>
                     Alongside this, I am developing a minimalist apparel line, focusing on essential forms and premium materials.
                 </p>
                 <p>
@@ -88,41 +87,122 @@
                 </p>
             </div>
         </div>
+    </div>
 
-        <!-- FOOTER / CONTACT (Integrated into content column) -->
-        <!-- Sits at the bottom of the flex column -->
-        <footer id="contact" class="mt-8 pt-8 border-t border-black/20">
-            <div class="max-w-xl mx-auto">
-                <div class="flex flex-col sm:flex-row justify-between items-start">
-                    <div class="mb-6 sm:mb-0">
-                        <h2 class="text-xl font-bold tracking-tighter uppercase mb-2">
-                            Let's Talk.
-                        </h2>
-                        <a href="mailto:ropefiasco@gmail.com" class="text-sm border-b border-black/30 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">
-                            ropefiasco@gmail.com
-                        </a>
-                    </div>
+    <!-- VIEW 2: APPAREL STORE (Hidden by default) -->
+    <div id="apparel-view" class="hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
+        
+        <!-- FLOATING PIXELATED HOODIE -->
+        <div class="mb-12 animate-float relative">
+            <svg width="300" height="300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art drop-shadow-2xl">
+                <!-- Hood -->
+                <rect x="9" y="2" width="6" height="1" fill="#FF6B00"/>
+                <rect x="8" y="3" width="8" height="1" fill="#FF6B00"/>
+                <rect x="7" y="4" width="10" height="4" fill="#FF6B00"/>
+                <!-- Shoulders -->
+                <rect x="4" y="8" width="16" height="2" fill="#FF6B00"/>
+                <!-- Sleeves -->
+                <rect x="2" y="10" width="4" height="8" fill="#FF6B00"/>
+                <rect x="18" y="10" width="4" height="8" fill="#FF6B00"/>
+                <!-- Cuffs -->
+                <rect x="2" y="18" width="4" height="1" fill="#CC5500"/>
+                <rect x="18" y="18" width="4" height="1" fill="#CC5500"/>
+                <!-- Body -->
+                <rect x="6" y="10" width="12" height="10" fill="#FF6B00"/>
+                <!-- Pocket -->
+                <rect x="8" y="15" width="8" height="3" fill="#CC5500"/>
+                <!-- Drawstrings -->
+                <rect x="10" y="8" width="1" height="4" fill="#111111"/>
+                <rect x="13" y="8" width="1" height="4" fill="#111111"/>
+            </svg>
+        </div>
 
-                    <div class="flex flex-col sm:items-end space-y-4">
-                        <!-- UPDATED SOCIAL LINKS -->
-                        <div class="flex space-x-8 text-xs uppercase tracking-widest">
-                            <a href="https://www.instagram.com/ropefiasco/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">Instagram</a>
-                            <a href="https://www.linkedin.com/in/jordan-roper-b525346a" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">LinkedIn</a>
-                            <a href="https.com/ropefiasco" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">X</a>
-                        </div>
-                        <p class="text-xs text-theme-subtle uppercase tracking-widest">
-                            Made in South Carolina
-                        </p>
-                        <p class="text-xs text-theme-subtle uppercase tracking-widest">
-                            © 2025 Ropefiasco. All rights reserved.
-                        </p>
+        <!-- STORE CONTENT -->
+        <div class="text-center space-y-8">
+            <h1 class="text-sm md:text-base uppercase tracking-[0.3em] font-bold text-theme-black pixel-text">
+                Coming Soon
+            </h1>
+            
+            <p class="text-xs md:text-sm font-light text-gray-500 max-w-md mx-auto leading-relaxed">
+                Limited run. Heavyweight cotton. Made in South Carolina.
+            </p>
+
+            <!-- PRE-ORDER BUTTON (Update link when Shopify is ready) -->
+            <a href="#" 
+               class="inline-block border border-black bg-theme-black text-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                Pre-Order Now
+            </a>
+            
+            <div class="pt-4 flex justify-center items-center space-x-2 opacity-50">
+                 <span class="text-[10px] uppercase tracking-widest text-gray-400">Accepting</span>
+                 <span class="text-[10px] font-bold text-gray-600">USD / BTC / ETH</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto border-t border-black/20 p-6 md:p-12">
+        <div class="max-w-xl mx-auto w-full">
+            <div class="flex flex-col sm:flex-row justify-between items-start">
+                <div class="mb-6 sm:mb-0">
+                    <h2 class="text-xl font-bold tracking-tighter uppercase mb-2">
+                        Let's Talk.
+                    </h2>
+                    <a href="mailto:ropefiasco@gmail.com" class="text-sm border-b border-black/30 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">
+                        ropefiasco@gmail.com
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:items-end space-y-4">
+                    <div class="flex space-x-8 text-xs uppercase tracking-widest">
+                        <a href="https://www.instagram.com/ropefiasco/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">Instagram</a>
+                        <a href="https://www.linkedin.com/in/jordan-roper-b525346a" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">LinkedIn</a>
+                        <a href="https://x.com/ropefiasco" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">X</a>
                     </div>
+                    <p class="text-xs text-theme-subtle uppercase tracking-widest">
+                        Made in South Carolina
+                    </p>
+                    <p class="text-xs text-theme-subtle uppercase tracking-widest">
+                        © 2025 Ropefiasco. All rights reserved.
+                    </p>
                 </div>
             </div>
-        </footer>
-    </main>
+        </div>
+    </footer>
 
-    <!-- No JavaScript is needed for this static layout -->
+    <!-- VIEW SWITCHING LOGIC -->
+    <script>
+        function showHome() {
+            document.getElementById('home-view').classList.remove('hidden-view');
+            document.getElementById('apparel-view').classList.add('hidden-view');
+            // Update URL hash safely
+            history.replaceState(null, null, '#invest');
+        }
 
+        function showApparel() {
+            document.getElementById('home-view').classList.add('hidden-view');
+            document.getElementById('apparel-view').classList.remove('hidden-view');
+            // Update URL hash safely
+            history.replaceState(null, null, '#apparel');
+        }
+
+        // Check URL on load to decide which view to show
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#apparel') {
+                showApparel();
+            } else {
+                showHome();
+            }
+        });
+
+        // Handle Back/Forward buttons
+        window.addEventListener('hashchange', () => {
+            if (window.location.hash === '#apparel') {
+                showApparel();
+            } else {
+                showHome();
+            }
+        });
+    </script>
 </body>
 </html>
