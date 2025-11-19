@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ropefiasco | Apparel</title>
+    <meta name="description" content="Ropefiasco Apparel - Coming Soon">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+            color: #111111;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Pixel Art Rendering Style */
+        .pixel-art {
+            image-rendering: pixelated; 
+            shape-rendering: crispEdges;
+        }
+
+        /* Retro 'Coming Soon' Font Effect (Optional, using standard font for minimalism) */
+        .pixel-text {
+            letter-spacing: 0.5em;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theme-orange': '#FF6B00', /* Vibrant Safety Orange */
+                        'theme-black': '#111111',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- NAVIGATION -->
+    <nav class="flex justify-between items-center p-6 md:p-12">
+        <a href="index.html" class="text-xs uppercase tracking-widest font-medium hover:text-gray-500 transition-colors">Ropefiasco</a>
+        <div class="flex space-x-12 text-xs uppercase tracking-widest font-medium">
+            <a href="index.html#work" class="hover:text-gray-500 transition-colors">Invest</a>
+            <!-- Active State -->
+            <a href="apparel.html" class="text-gray-500 cursor-default">Apparel</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow flex flex-col items-center justify-center px-6 pb-20">
+        
+        <!-- FLOATING PIXELATED HOODIE -->
+        <div class="mb-12 animate-float relative">
+            <!-- 
+                Custom SVG Pixel Art Hoodie 
+                Constructed with simple rects for a robust 8-bit look 
+            -->
+            <svg width="300" height="300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art drop-shadow-2xl">
+                <!-- Hood -->
+                <rect x="9" y="2" width="6" height="1" fill="#FF6B00"/>
+                <rect x="8" y="3" width="8" height="1" fill="#FF6B00"/>
+                <rect x="7" y="4" width="10" height="4" fill="#FF6B00"/>
+                <!-- Shoulders -->
+                <rect x="4" y="8" width="16" height="2" fill="#FF6B00"/>
+                <!-- Sleeves -->
+                <rect x="2" y="10" width="4" height="8" fill="#FF6B00"/>
+                <rect x="18" y="10" width="4" height="8" fill="#FF6B00"/>
+                <!-- Cuffs -->
+                <rect x="2" y="18" width="4" height="1" fill="#CC5500"/>
+                <rect x="18" y="18" width="4" height="1" fill="#CC5500"/>
+                <!-- Body -->
+                <rect x="6" y="10" width="12" height="10" fill="#FF6B00"/>
+                <!-- Pocket Area -->
+                <rect x="8" y="15" width="8" height="3" fill="#CC5500"/>
+                <!-- Drawstrings (Black) -->
+                <rect x="10" y="8" width="1" height="4" fill="#111111"/>
+                <rect x="13" y="8" width="1" height="4" fill="#111111"/>
+            </svg>
+        </div>
+
+        <!-- TEXT -->
+        <div class="text-center space-y-8">
+            <h1 class="text-sm md:text-base uppercase tracking-[0.3em] font-bold text-theme-black pixel-text">
+                Coming Soon
+            </h1>
+            
+            <p class="text-xs md:text-sm font-light text-gray-500 max-w-md mx-auto leading-relaxed">
+                Limited run. Heavyweight cotton. Made in South Carolina.
+            </p>
+
+            <!-- PRE-ORDER BUTTON -->
+            <!-- 
+               NOTE: Replace the href below with your actual Shopify Product URL 
+               or integrate the Shopify Buy Button script.
+            -->
+            <a href="https://your-shopify-store-url.com/products/hoodie-preorder" 
+               target="_blank"
+               class="inline-block border border-black bg-theme-black text-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                Pre-Order Now
+            </a>
+            
+            <div class="pt-4 flex justify-center items-center space-x-2 opacity-50">
+                 <span class="text-[10px] uppercase tracking-widest text-gray-400">Accepting</span>
+                 <!-- Simple icons for Crypto context -->
+                 <span class="text-[10px] font-bold text-gray-600">USD / BTC / ETH</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full p-6 md:p-12 border-t border-black/10">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end text-[10px] uppercase tracking-widest text-gray-400 space-y-4 md:space-y-0">
+            <span>© 2025 Ropefiasco</span>
+            <span>Made in South Carolina</span>
+        </div>
+    </footer>
+
+</body>
+</html>
