@@ -97,7 +97,7 @@
         </div>
     </div>
 
-    <!-- VIEW 2: INVEST / ACE PROTOCOL (New) -->
+    <!-- VIEW 2: INVEST / ACE PROTOCOL (Updated) -->
     <div id="invest-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
         <!-- SPINNING PIXEL GLOBE -->
@@ -136,9 +136,18 @@
                 </p>
             </div>
 
-            <!-- CRYPTO WALLET SECTION -->
+            <!-- REQUEST ACCESS (New Primary CTA) -->
+            <div class="mt-12 mb-8">
+                <a href="mailto:ropefiasco@gmail.com?subject=Request%20ACE%20Whitepaper%20Access&body=I%20am%20interested%20in%20learning%20more%20about%20the%20ACE%20Protocol.%20Please%20provide%20access%20to%20the%20whitepaper." 
+                   class="inline-block border border-black bg-theme-black text-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                    Request Access
+                </a>
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-2">Whitepaper & Protocol Documentation</p>
+            </div>
+
+            <!-- CRYPTO WALLET SECTION (Secondary) -->
             <div class="bg-white border border-black/10 p-6 mt-8">
-                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">ACE Liquidity Pool (ETH/ERC-20)</p>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Early Liquidity Contribution (Public)</p>
                 <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
                     <code class="text-xs bg-gray-100 px-3 py-2 rounded select-all break-all">0xA1579026964EB668DCFc218872C4881155CCe11D</code>
                     <button onclick="copyAddress()" class="bg-theme-black text-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-gray-800 transition-all active:scale-95">
@@ -150,7 +159,7 @@
         </div>
     </div>
 
-    <!-- VIEW 3: APPAREL STORE (Hidden by default) -->
+    <!-- VIEW 3: APPAREL STORE (Updated) -->
     <div id="apparel-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
         <!-- FLOATING PIXELATED HOODIE -->
@@ -188,10 +197,10 @@
                 Limited run. Heavyweight cotton. Made in South Carolina.
             </p>
 
-            <!-- PRE-ORDER BUTTON -->
-            <a href="#" 
+            <!-- WAITLIST BUTTON (New) -->
+            <a href="mailto:ropefiasco@gmail.com?subject=Apparel%20Waitlist%20Request&body=Please%20add%20me%20to%20the%20waitlist%20for%20the%20upcoming%20hoodie%20drop." 
                class="inline-block border border-black bg-theme-black text-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
-                Pre-Order Now
+                Join Waitlist
             </a>
             
             <div class="pt-4 flex justify-center items-center space-x-2 opacity-50">
@@ -269,9 +278,6 @@
         // Router
         function handleRoute() {
             const hash = window.location.hash.replace('#', '') || 'home';
-            // Support legacy #work link by redirecting to home or invest as preferred. 
-            // Assuming #work -> invest based on previous context, or home based on nav.
-            // Let's map 'invest', 'apparel', 'home'.
             if (['home', 'invest', 'apparel'].includes(hash)) {
                 showView(hash);
             } else {
