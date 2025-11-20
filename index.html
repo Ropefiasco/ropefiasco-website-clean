@@ -22,13 +22,15 @@
         
         .hover-trigger { transition: all 0.5s ease-in-out; }
 
-        /* Floating Animation for Hoodie */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        /* Floating Animation for Hoodie - Modified for "Wind" feel */
+        @keyframes float-wind {
+            0% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(2deg); }
+            50% { transform: translateY(-25px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
-        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-wind { animation: float-wind 8s ease-in-out infinite; }
 
         /* Spin Animation for Globe */
         @keyframes spin-slow {
@@ -49,6 +51,11 @@
         .whitepaper-scroll::-webkit-scrollbar-track { background: #f4f4f4; }
         .whitepaper-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
         .whitepaper-scroll::-webkit-scrollbar-thumb:hover { background: #111; }
+        
+        /* Blur effect for pixel art */
+        .pixel-blur {
+             filter: blur(0.5px);
+        }
     </style>
     <script>
         tailwind.config = {
@@ -60,6 +67,8 @@
                         'theme-text': '#111111',
                         'theme-subtle': '#6b7280',
                         'theme-orange': '#FF6B00',
+                        'theme-orange-dark': '#CC5500',
+                        'theme-orange-light': '#FF8533',
                         'theme-blue': '#002FA7',
                     },
                     letterSpacing: { 'ultra-wide': '0.25em' }
@@ -148,7 +157,7 @@
                 </a>
             </div>
 
-            <!-- COMPLIANCE NOTICE (Replaces Wallet Address) -->
+            <!-- COMPLIANCE NOTICE -->
             <div class="bg-white border border-black/10 p-6 mt-8">
                 <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Liquidity Provider Access</p>
                 <div class="text-center">
@@ -229,43 +238,90 @@
         </div>
     </div>
 
-    <!-- VIEW 4: APPAREL STORE -->
+    <!-- VIEW 4: APPAREL STORE (Overhauled) -->
     <div id="apparel-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
-        <div class="mb-12 animate-float relative">
-            <svg width="300" height="300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art drop-shadow-2xl">
-                <rect x="9" y="2" width="6" height="1" fill="#FF6B00"/>
-                <rect x="8" y="3" width="8" height="1" fill="#FF6B00"/>
-                <rect x="7" y="4" width="10" height="4" fill="#FF6B00"/>
-                <rect x="4" y="8" width="16" height="2" fill="#FF6B00"/>
-                <rect x="2" y="10" width="4" height="8" fill="#FF6B00"/>
-                <rect x="18" y="10" width="4" height="8" fill="#FF6B00"/>
-                <rect x="2" y="18" width="4" height="1" fill="#CC5500"/>
-                <rect x="18" y="18" width="4" height="1" fill="#CC5500"/>
-                <rect x="6" y="10" width="12" height="10" fill="#FF6B00"/>
-                <rect x="8" y="15" width="8" height="3" fill="#CC5500"/>
-                <rect x="10" y="8" width="1" height="4" fill="#111111"/>
-                <rect x="13" y="8" width="1" height="4" fill="#111111"/>
+        <!-- HERO PRODUCT IMAGE (Scaled Up) -->
+        <div class="mb-16 animate-float-wind relative">
+            <!-- 
+               Improved "Yeezy-Style" Pixel Art Hoodie 
+               - Deeper shadows 
+               - More defined shape 
+               - Floating wind animation
+            -->
+            <svg width="600" height="600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art pixel-blur drop-shadow-2xl transform scale-125">
+                <!-- Hood Back/Inside (Darkest) -->
+                <rect x="26" y="10" width="12" height="6" fill="#994000"/>
+                
+                <!-- Main Hood (Base Orange) -->
+                <rect x="24" y="8" width="16" height="4" fill="#FF6B00"/>
+                <rect x="22" y="12" width="4" height="10" fill="#FF6B00"/>
+                <rect x="38" y="12" width="4" height="10" fill="#FF6B00"/>
+                <rect x="26" y="6" width="12" height="2" fill="#FF6B00"/>
+                
+                <!-- Hood Highlight (Lighter) -->
+                <rect x="28" y="6" width="8" height="2" fill="#FF8533"/>
+
+                <!-- Shoulders -->
+                <rect x="18" y="16" width="28" height="4" fill="#FF6B00"/>
+                
+                <!-- Left Sleeve (Floating out) -->
+                <rect x="12" y="18" width="6" height="4" fill="#FF6B00"/>
+                <rect x="10" y="22" width="6" height="12" fill="#FF6B00"/> <!-- Arm -->
+                <rect x="8" y="34" width="6" height="4" fill="#CC5500"/> <!-- Cuff/Shadow -->
+                
+                <!-- Right Sleeve (Floating out) -->
+                <rect x="46" y="18" width="6" height="4" fill="#FF6B00"/>
+                <rect x="48" y="22" width="6" height="12" fill="#FF6B00"/> <!-- Arm -->
+                <rect x="50" y="34" width="6" height="4" fill="#CC5500"/> <!-- Cuff/Shadow -->
+
+                <!-- Torso Body -->
+                <rect x="20" y="20" width="24" height="24" fill="#FF6B00"/>
+                
+                <!-- Pouch Pocket -->
+                <rect x="24" y="32" width="16" height="8" fill="#FF8533"/> <!-- Lighter for 3D pop -->
+                <rect x="24" y="32" width="2" height="8" fill="#CC5500"/> <!-- Pocket Shadow left -->
+                <rect x="38" y="32" width="2" height="8" fill="#CC5500"/> <!-- Pocket Shadow right -->
+                
+                <!-- Bottom Hem (Uneven for wind) -->
+                <rect x="20" y="44" width="24" height="4" fill="#CC5500"/>
+                <rect x="22" y="48" width="4" height="2" fill="#CC5500"/> <!-- Dangle -->
+                <rect x="38" y="48" width="4" height="2" fill="#CC5500"/> <!-- Dangle -->
+
+                <!-- Drawstrings (Floating in wind) -->
+                <rect x="27" y="22" width="2" height="6" fill="#111111"/>
+                <rect x="29" y="28" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
+                
+                <rect x="35" y="22" width="2" height="8" fill="#111111"/>
+                <rect x="37" y="30" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
+                
+                <!-- 3D Shading (Right side darker) -->
+                <rect x="42" y="20" width="2" height="24" fill="#CC5500"/>
             </svg>
         </div>
 
-        <div class="text-center space-y-8">
-            <h1 class="text-sm md:text-base uppercase tracking-[0.3em] font-bold text-theme-black pixel-text">
-                Proof of Culture
+        <div class="text-center space-y-10">
+            <!-- SCARCITY LANGUAGE -->
+            <h1 class="text-4xl md:text-6xl font-bold text-theme-black uppercase tracking-tighter">
+                DROP 001
             </h1>
             
-            <p class="text-xs md:text-sm font-light text-gray-500 max-w-md mx-auto leading-relaxed">
-                Genesis Collection. Heavyweight cotton. Made in South Carolina.
+            <p class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-widest">
+                Restricted Access / 50 Units / Heavyweight Cotton
             </p>
 
-            <a href="mailto:ropefiasco@gmail.com?subject=Apparel%20Waitlist%20Request&body=Please%20add%20me%20to%20the%20waitlist%20for%20the%20upcoming%20hoodie%20drop." 
-               class="inline-block border border-black bg-theme-black text-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+            <!-- WAITLIST BUTTON -->
+            <a href="mailto:ropefiasco@gmail.com?subject=Apparel%20Waitlist%20Request&body=Requesting%20access%20code%20for%20Drop%20001." 
+               class="inline-block bg-theme-black text-white px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-theme-orange hover:text-black transition-all duration-300">
                 Join Waitlist
             </a>
             
-            <div class="pt-4 flex justify-center items-center space-x-2 opacity-50">
-                 <span class="text-[10px] uppercase tracking-widest text-gray-400">Limited Run</span>
-                 <span class="text-[10px] font-bold text-gray-600">S / M / L / XL</span>
+            <!-- CRYPTO ICONS -->
+            <div class="pt-4 flex justify-center items-center space-x-4 opacity-60">
+                 <span class="text-[10px] uppercase tracking-widest text-gray-400">Accepting</span>
+                 <span class="text-xs font-bold text-gray-800">USD</span>
+                 <span class="text-xs font-bold text-gray-800">BTC</span>
+                 <span class="text-xs font-bold text-gray-800">ETH</span>
             </div>
         </div>
     </div>
