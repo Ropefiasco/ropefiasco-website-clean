@@ -22,15 +22,15 @@
         
         .hover-trigger { transition: all 0.5s ease-in-out; }
 
-        /* Floating Animation for Hoodie - Modified for "Wind" feel */
+        /* Floating Animation for Hoodie - Enhanced Wind Effect */
         @keyframes float-wind {
-            0% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(2deg); }
-            50% { transform: translateY(-25px) rotate(0deg); }
-            75% { transform: translateY(-15px) rotate(-2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-8px) rotate(1deg) scale(1); }
+            50% { transform: translateY(-15px) rotate(-1deg) scale(1.01); } /* Slight breathe */
+            75% { transform: translateY(-8px) rotate(1deg) scale(1); }
+            100% { transform: translateY(0px) rotate(0deg) scale(1); }
         }
-        .animate-float-wind { animation: float-wind 8s ease-in-out infinite; }
+        .animate-float-wind { animation: float-wind 10s ease-in-out infinite; }
 
         /* Spin Animation for Globe */
         @keyframes spin-slow {
@@ -66,8 +66,8 @@
                         'theme-gray': '#f4f4f4',
                         'theme-text': '#111111',
                         'theme-subtle': '#6b7280',
-                        'theme-orange': '#FF6B00',
-                        'theme-orange-dark': '#CC5500',
+                        'theme-orange': '#F56600', /* Clemson Orange */
+                        'theme-orange-dark': '#A64500',
                         'theme-orange-light': '#FF8533',
                         'theme-blue': '#002FA7',
                     },
@@ -238,65 +238,68 @@
         </div>
     </div>
 
-    <!-- VIEW 4: APPAREL STORE (Overhauled) -->
+    <!-- VIEW 4: APPAREL STORE (Updated) -->
     <div id="apparel-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
-        <!-- HERO PRODUCT IMAGE (Scaled Up) -->
-        <div class="mb-16 animate-float-wind relative">
+        <!-- HERO PRODUCT IMAGE (Scaled Down) -->
+        <div class="mb-12 animate-float-wind relative">
             <!-- 
-               Improved "Yeezy-Style" Pixel Art Hoodie 
-               - Deeper shadows 
-               - More defined shape 
-               - Floating wind animation
+               Orange 3D-Style Pixel Hoodie with Person
+               - Clemson Orange (#F56600)
+               - Brown skin tone for person in hood
             -->
-            <svg width="600" height="600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art pixel-blur drop-shadow-2xl transform scale-125">
+            <svg width="400" height="400" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art pixel-blur drop-shadow-2xl transform scale-100">
                 <!-- Hood Back/Inside (Darkest) -->
-                <rect x="26" y="10" width="12" height="6" fill="#994000"/>
-                
-                <!-- Main Hood (Base Orange) -->
-                <rect x="24" y="8" width="16" height="4" fill="#FF6B00"/>
-                <rect x="22" y="12" width="4" height="10" fill="#FF6B00"/>
-                <rect x="38" y="12" width="4" height="10" fill="#FF6B00"/>
-                <rect x="26" y="6" width="12" height="2" fill="#FF6B00"/>
+                <rect x="26" y="10" width="12" height="6" fill="#A64500"/>
+
+                <!-- Person Face (Brown Skin Tone) -->
+                <rect x="29" y="11" width="6" height="5" fill="#8D5524"/> 
+
+                <!-- Main Hood (Base Clemson Orange) -->
+                <rect x="24" y="8" width="16" height="4" fill="#F56600"/>
+                <rect x="22" y="12" width="4" height="10" fill="#F56600"/>
+                <rect x="38" y="12" width="4" height="10" fill="#F56600"/>
+                <rect x="26" y="6" width="12" height="2" fill="#F56600"/>
                 
                 <!-- Hood Highlight (Lighter) -->
                 <rect x="28" y="6" width="8" height="2" fill="#FF8533"/>
 
                 <!-- Shoulders -->
-                <rect x="18" y="16" width="28" height="4" fill="#FF6B00"/>
+                <rect x="18" y="16" width="28" height="4" fill="#F56600"/>
                 
-                <!-- Left Sleeve (Floating out) -->
-                <rect x="12" y="18" width="6" height="4" fill="#FF6B00"/>
-                <rect x="10" y="22" width="6" height="12" fill="#FF6B00"/> <!-- Arm -->
-                <rect x="8" y="34" width="6" height="4" fill="#CC5500"/> <!-- Cuff/Shadow -->
+                <!-- Left Sleeve (Floating out - Wind effect) -->
+                <rect x="10" y="18" width="8" height="4" fill="#F56600"/>
+                <rect x="8" y="22" width="6" height="10" fill="#F56600"/> <!-- Arm angled out -->
+                <rect x="6" y="32" width="6" height="4" fill="#A64500"/> <!-- Cuff/Shadow -->
                 
-                <!-- Right Sleeve (Floating out) -->
-                <rect x="46" y="18" width="6" height="4" fill="#FF6B00"/>
-                <rect x="48" y="22" width="6" height="12" fill="#FF6B00"/> <!-- Arm -->
-                <rect x="50" y="34" width="6" height="4" fill="#CC5500"/> <!-- Cuff/Shadow -->
+                <!-- Right Sleeve (Floating out - Wind effect) -->
+                <rect x="46" y="18" width="8" height="4" fill="#F56600"/>
+                <rect x="50" y="22" width="6" height="10" fill="#F56600"/> <!-- Arm angled out -->
+                <rect x="52" y="32" width="6" height="4" fill="#A64500"/> <!-- Cuff/Shadow -->
 
                 <!-- Torso Body -->
-                <rect x="20" y="20" width="24" height="24" fill="#FF6B00"/>
+                <rect x="20" y="20" width="24" height="24" fill="#F56600"/>
                 
                 <!-- Pouch Pocket -->
                 <rect x="24" y="32" width="16" height="8" fill="#FF8533"/> <!-- Lighter for 3D pop -->
-                <rect x="24" y="32" width="2" height="8" fill="#CC5500"/> <!-- Pocket Shadow left -->
-                <rect x="38" y="32" width="2" height="8" fill="#CC5500"/> <!-- Pocket Shadow right -->
+                <rect x="24" y="32" width="2" height="8" fill="#A64500"/> <!-- Pocket Shadow left -->
+                <rect x="38" y="32" width="2" height="8" fill="#A64500"/> <!-- Pocket Shadow right -->
                 
                 <!-- Bottom Hem (Uneven for wind) -->
-                <rect x="20" y="44" width="24" height="4" fill="#CC5500"/>
-                <rect x="22" y="48" width="4" height="2" fill="#CC5500"/> <!-- Dangle -->
-                <rect x="38" y="48" width="4" height="2" fill="#CC5500"/> <!-- Dangle -->
+                <rect x="20" y="44" width="24" height="4" fill="#A64500"/>
+                <rect x="18" y="46" width="4" height="2" fill="#A64500"/> <!-- Dangle Left -->
+                <rect x="42" y="46" width="4" height="2" fill="#A64500"/> <!-- Dangle Right -->
 
-                <!-- Drawstrings (Floating in wind) -->
-                <rect x="27" y="22" width="2" height="6" fill="#111111"/>
-                <rect x="29" y="28" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
+                <!-- Drawstrings (Black for contrast) -->
+                <rect x="27" y="22" width="2" height="4" fill="#111111"/>
+                <rect x="29" y="26" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
+                <rect x="33" y="28" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
                 
-                <rect x="35" y="22" width="2" height="8" fill="#111111"/>
-                <rect x="37" y="30" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
+                <rect x="35" y="22" width="2" height="6" fill="#111111"/>
+                <rect x="37" y="28" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
                 
                 <!-- 3D Shading (Right side darker) -->
-                <rect x="42" y="20" width="2" height="24" fill="#CC5500"/>
+                <rect x="42" y="20" width="2" height="24" fill="#A64500"/>
             </svg>
         </div>
 
@@ -307,7 +310,7 @@
             </h1>
             
             <p class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-widest">
-                Restricted Access / 50 Units / Heavyweight Cotton
+                Restricted Access / Limited Release / Heavyweight Cotton
             </p>
 
             <!-- WAITLIST BUTTON -->
