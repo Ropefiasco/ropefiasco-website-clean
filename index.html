@@ -22,11 +22,11 @@
         
         .hover-trigger { transition: all 0.5s ease-in-out; }
 
-        /* Floating Animation for Hoodie - Enhanced Wind Effect */
+        /* Floating Animation for Hoodie */
         @keyframes float-wind {
             0% { transform: translateY(0px) rotate(0deg) scale(1); }
             25% { transform: translateY(-8px) rotate(1deg) scale(1); }
-            50% { transform: translateY(-15px) rotate(-1deg) scale(1.01); } /* Slight breathe */
+            50% { transform: translateY(-15px) rotate(-1deg) scale(1.01); } 
             75% { transform: translateY(-8px) rotate(1deg) scale(1); }
             100% { transform: translateY(0px) rotate(0deg) scale(1); }
         }
@@ -46,16 +46,14 @@
         /* Utility to hide sections */
         .hidden-view { display: none !important; }
         
-        /* Custom Scrollbar for Whitepaper */
+        /* Custom Scrollbar */
         .whitepaper-scroll::-webkit-scrollbar { width: 6px; }
         .whitepaper-scroll::-webkit-scrollbar-track { background: #f4f4f4; }
         .whitepaper-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
         .whitepaper-scroll::-webkit-scrollbar-thumb:hover { background: #111; }
         
         /* Blur effect for pixel art */
-        .pixel-blur {
-             filter: blur(0.5px);
-        }
+        .pixel-blur { filter: blur(0.5px); }
     </style>
     <script>
         tailwind.config = {
@@ -81,13 +79,10 @@
 
     <!-- NAVIGATION -->
     <nav class="flex justify-between items-center p-6 md:p-12">
-        <!-- Clicking Logo goes to Home View -->
         <a href="#home" onclick="showView('home')" class="text-xs uppercase tracking-widest font-medium hover-trigger hover:text-gray-500 cursor-pointer">Ropefiasco</a>
         
         <div class="flex space-x-12 text-xs uppercase tracking-widest font-medium">
-            <!-- Switches to Investing View -->
             <a href="#invest" onclick="showView('invest')" class="hover-trigger hover:text-gray-500 cursor-pointer">ACE Protocol</a>
-            <!-- Switches to Apparel View -->
             <a href="#apparel" onclick="showView('apparel')" class="hover-trigger hover:text-gray-500 cursor-pointer">Apparel</a>
         </div>
     </nav>
@@ -130,18 +125,74 @@
             </svg>
         </div>
 
-        <div class="max-w-xl mx-auto text-center space-y-8">
+        <div class="max-w-4xl mx-auto text-center space-y-12">
             <h1 class="text-sm md:text-base uppercase tracking-[0.3em] font-bold text-theme-black pixel-text">
                 Receivables Factoring & Yield
             </h1>
             
-            <div class="text-sm font-light leading-relaxed space-y-6 text-left md:text-center">
+            <div class="text-sm font-light leading-relaxed space-y-6 text-left md:text-center max-w-xl mx-auto">
                 <p>
                     <span class="font-medium">The Thesis:</span> Student-athlete contracts are high-value receivables trapped in an illiquid market. ACE provides the infrastructure to factor these contracts, turning future cash flows into immediate working capital for the athlete.
                 </p>
-                <p>
-                    <span class="font-medium">Institutional Security:</span> Unlike predatory lending, we utilize a "Notice of Assignment" legal framework combined with Smart Contract Escrow. Capital is secured at the source (The Brand/Collective), drastically reducing behavioral default risk.
-                </p>
+            </div>
+
+            <!-- PRODUCTIVE CAPITAL MATRIX (New Visual) -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-left text-xs border-t border-black/10 pt-8">
+                
+                <!-- Column 1 -->
+                <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                    <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 1</p>
+                    <h3 class="font-bold text-sm mb-4">The Transfer Bridge</h3>
+                    <div class="space-y-3 text-gray-600">
+                        <p><span class="font-medium text-theme-black">Problem:</span> Gap between signing & relocation costs.</p>
+                        <p><span class="font-medium text-theme-black">Input:</span> $15k (Signing Bonus)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 12% APY (High Velocity)</p>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                    <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 2</p>
+                    <h3 class="font-bold text-sm mb-4">Performance Accelerator</h3>
+                    <div class="space-y-3 text-gray-600">
+                        <p><span class="font-medium text-theme-black">Problem:</span> Needs elite coaching for Draft stock.</p>
+                        <p><span class="font-medium text-theme-black">Input:</span> $40k (Senior NIL)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 10% APY (Medium Duration)</p>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                    <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 3</p>
+                    <h3 class="font-bold text-sm mb-4">Family Anchor</h3>
+                    <div class="space-y-3 text-gray-600">
+                        <p><span class="font-medium text-theme-black">Problem:</span> Financial stress affecting focus.</p>
+                        <p><span class="font-medium text-theme-black">Input:</span> $100k (Multi-Year Deal)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 8% APY (Corporate Backed)</p>
+                    </div>
+                </div>
+
+                 <!-- Column 4 -->
+                 <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                    <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 4</p>
+                    <h3 class="font-bold text-sm mb-4">Brand Empire</h3>
+                    <div class="space-y-3 text-gray-600">
+                        <p><span class="font-medium text-theme-black">Problem:</span> High reach, low production budget.</p>
+                        <p><span class="font-medium text-theme-black">Input:</span> $25k (Ad Revenue)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 15% APY (Revenue Share)</p>
+                    </div>
+                </div>
+
+                 <!-- Column 5 -->
+                 <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                    <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 5</p>
+                    <h3 class="font-bold text-sm mb-4">Future Trust</h3>
+                    <div class="space-y-3 text-gray-600">
+                        <p><span class="font-medium text-theme-black">Problem:</span> High earner risking spend-down.</p>
+                        <p><span class="font-medium text-theme-black">Input:</span> $500k (Locked Protocol)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 5% APY (Risk Free)</p>
+                    </div>
+                </div>
             </div>
 
             <!-- ACTION BUTTONS -->
@@ -158,7 +209,7 @@
             </div>
 
             <!-- COMPLIANCE NOTICE -->
-            <div class="bg-white border border-black/10 p-6 mt-8">
+            <div class="bg-white border border-black/10 p-6 mt-8 max-w-xl mx-auto">
                 <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Liquidity Provider Access</p>
                 <div class="text-center">
                     <p class="text-xs font-medium text-theme-black mb-2">
@@ -238,10 +289,9 @@
         </div>
     </div>
 
-    <!-- VIEW 4: APPAREL STORE (Updated) -->
+    <!-- VIEW 4: APPAREL STORE -->
     <div id="apparel-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
-        <!-- HERO PRODUCT IMAGE (Scaled Down) -->
         <div class="mb-12 animate-float-wind relative">
             <!-- 
                Orange 3D-Style Pixel Hoodie with Person
@@ -249,62 +299,37 @@
                - Brown skin tone for person in hood
             -->
             <svg width="400" height="400" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art pixel-blur drop-shadow-2xl transform scale-100">
-                <!-- Hood Back/Inside (Darkest) -->
                 <rect x="26" y="10" width="12" height="6" fill="#A64500"/>
-
-                <!-- Person Face (Brown Skin Tone) -->
                 <rect x="29" y="11" width="6" height="5" fill="#8D5524"/> 
-
-                <!-- Main Hood (Base Clemson Orange) -->
                 <rect x="24" y="8" width="16" height="4" fill="#F56600"/>
                 <rect x="22" y="12" width="4" height="10" fill="#F56600"/>
                 <rect x="38" y="12" width="4" height="10" fill="#F56600"/>
                 <rect x="26" y="6" width="12" height="2" fill="#F56600"/>
-                
-                <!-- Hood Highlight (Lighter) -->
                 <rect x="28" y="6" width="8" height="2" fill="#FF8533"/>
-
-                <!-- Shoulders -->
                 <rect x="18" y="16" width="28" height="4" fill="#F56600"/>
-                
-                <!-- Left Sleeve (Floating out - Wind effect) -->
                 <rect x="10" y="18" width="8" height="4" fill="#F56600"/>
-                <rect x="8" y="22" width="6" height="10" fill="#F56600"/> <!-- Arm angled out -->
-                <rect x="6" y="32" width="6" height="4" fill="#A64500"/> <!-- Cuff/Shadow -->
-                
-                <!-- Right Sleeve (Floating out - Wind effect) -->
+                <rect x="8" y="22" width="6" height="10" fill="#F56600"/> 
+                <rect x="6" y="32" width="6" height="4" fill="#A64500"/> 
                 <rect x="46" y="18" width="8" height="4" fill="#F56600"/>
-                <rect x="50" y="22" width="6" height="10" fill="#F56600"/> <!-- Arm angled out -->
-                <rect x="52" y="32" width="6" height="4" fill="#A64500"/> <!-- Cuff/Shadow -->
-
-                <!-- Torso Body -->
+                <rect x="50" y="22" width="6" height="10" fill="#F56600"/> 
+                <rect x="52" y="32" width="6" height="4" fill="#A64500"/> 
                 <rect x="20" y="20" width="24" height="24" fill="#F56600"/>
-                
-                <!-- Pouch Pocket -->
-                <rect x="24" y="32" width="16" height="8" fill="#FF8533"/> <!-- Lighter for 3D pop -->
-                <rect x="24" y="32" width="2" height="8" fill="#A64500"/> <!-- Pocket Shadow left -->
-                <rect x="38" y="32" width="2" height="8" fill="#A64500"/> <!-- Pocket Shadow right -->
-                
-                <!-- Bottom Hem (Uneven for wind) -->
+                <rect x="24" y="32" width="16" height="8" fill="#FF8533"/> 
+                <rect x="24" y="32" width="2" height="8" fill="#A64500"/> 
+                <rect x="38" y="32" width="2" height="8" fill="#A64500"/> 
                 <rect x="20" y="44" width="24" height="4" fill="#A64500"/>
-                <rect x="18" y="46" width="4" height="2" fill="#A64500"/> <!-- Dangle Left -->
-                <rect x="42" y="46" width="4" height="2" fill="#A64500"/> <!-- Dangle Right -->
-
-                <!-- Drawstrings (Black for contrast) -->
+                <rect x="18" y="46" width="4" height="2" fill="#A64500"/> 
+                <rect x="42" y="46" width="4" height="2" fill="#A64500"/> 
                 <rect x="27" y="22" width="2" height="4" fill="#111111"/>
-                <rect x="29" y="26" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
-                <rect x="33" y="28" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
-                
+                <rect x="29" y="26" width="4" height="2" fill="#111111"/> 
+                <rect x="33" y="28" width="4" height="2" fill="#111111"/> 
                 <rect x="35" y="22" width="2" height="6" fill="#111111"/>
-                <rect x="37" y="28" width="4" height="2" fill="#111111"/> <!-- Blowing right -->
-                
-                <!-- 3D Shading (Right side darker) -->
+                <rect x="37" y="28" width="4" height="2" fill="#111111"/> 
                 <rect x="42" y="20" width="2" height="24" fill="#A64500"/>
             </svg>
         </div>
 
         <div class="text-center space-y-10">
-            <!-- SCARCITY LANGUAGE -->
             <h1 class="text-4xl md:text-6xl font-bold text-theme-black uppercase tracking-tighter">
                 DROP 001
             </h1>
@@ -313,13 +338,11 @@
                 Restricted Access / Limited Release / Heavyweight Cotton
             </p>
 
-            <!-- WAITLIST BUTTON -->
             <a href="mailto:ropefiasco@gmail.com?subject=Apparel%20Waitlist%20Request&body=Requesting%20access%20code%20for%20Drop%20001." 
                class="inline-block bg-theme-black text-white px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-theme-orange hover:text-black transition-all duration-300">
                 Join Waitlist
             </a>
             
-            <!-- CRYPTO ICONS -->
             <div class="pt-4 flex justify-center items-center space-x-4 opacity-60">
                  <span class="text-[10px] uppercase tracking-widest text-gray-400">Accepting</span>
                  <span class="text-xs font-bold text-gray-800">USD</span>
