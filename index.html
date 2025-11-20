@@ -43,6 +43,21 @@
 
         /* Utility to hide sections */
         .hidden-view { display: none !important; }
+        
+        /* Custom Scrollbar for Whitepaper */
+        .whitepaper-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .whitepaper-scroll::-webkit-scrollbar-track {
+            background: #f4f4f4; 
+        }
+        .whitepaper-scroll::-webkit-scrollbar-thumb {
+            background: #ccc; 
+            border-radius: 3px;
+        }
+        .whitepaper-scroll::-webkit-scrollbar-thumb:hover {
+            background: #111; 
+        }
     </style>
     <script>
         tailwind.config = {
@@ -77,7 +92,7 @@
         </div>
     </nav>
 
-    <!-- VIEW 1: HOME / MANIFESTO (Updated) -->
+    <!-- VIEW 1: HOME / MANIFESTO -->
     <div id="home-view" class="view-section flex-grow flex flex-col p-6 md:p-12 pt-0 md:pt-0 transition-opacity duration-500">
         <div class="max-w-xl mx-auto flex-grow flex items-center py-12 md:py-20">
             <div class="space-y-10 text-lg md:text-xl font-light leading-relaxed">
@@ -97,16 +112,13 @@
         </div>
     </div>
 
-    <!-- VIEW 2: INVEST / ACE PROTOCOL (Updated) -->
+    <!-- VIEW 2: INVEST / ACE PROTOCOL -->
     <div id="invest-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
         <!-- SPINNING PIXEL GLOBE -->
         <div class="mb-12 relative">
             <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art animate-spin-slow drop-shadow-xl">
-                <!-- Globe Base (Circle) -->
                 <circle cx="50" cy="50" r="40" fill="#f4f4f4" stroke="#111111" stroke-width="2"/>
-                
-                <!-- Pixelated Continents (Abstract) -->
                 <rect x="30" y="30" width="10" height="10" fill="#111111" />
                 <rect x="40" y="30" width="10" height="10" fill="#111111" />
                 <rect x="40" y="40" width="10" height="10" fill="#111111" />
@@ -115,8 +127,6 @@
                 <rect x="50" y="60" width="10" height="10" fill="#111111" />
                 <rect x="25" y="55" width="10" height="5" fill="#111111" />
                 <rect x="70" y="35" width="5" height="5" fill="#111111" />
-                
-                <!-- Acceleration Arrows Orbiting -->
                 <path d="M50 5 A45 45 0 0 1 95 50" stroke="#111111" stroke-width="1" stroke-dasharray="4 2" fill="none" />
                 <path d="M50 95 A45 45 0 0 1 5 50" stroke="#111111" stroke-width="1" stroke-dasharray="4 2" fill="none" />
             </svg>
@@ -136,24 +146,22 @@
                 </p>
             </div>
 
-            <!-- REQUEST ACCESS (Primary CTA) -->
-            <div class="mt-12 mb-8">
-                <a href="mailto:ropefiasco@gmail.com?subject=Request%20ACE%20Whitepaper%20Access&body=I%20am%20interested%20in%20learning%20more%20about%20the%20ACE%20Protocol.%20Please%20provide%20access%20to%20the%20whitepaper." 
+            <!-- ACTION BUTTONS -->
+            <div class="mt-12 mb-8 flex flex-col md:flex-row items-center justify-center gap-4">
+                <!-- Opens the Whitepaper View -->
+                <button onclick="showView('whitepaper')" 
                    class="inline-block border border-black bg-theme-black text-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
-                    Request Access
-                </a>
-                <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-2">Whitepaper & Protocol Documentation</p>
-            </div>
-
-             <!-- RISK & GOVERNANCE LINK -->
-            <div class="mt-4">
-                <a href="mailto:ropefiasco@gmail.com?subject=Inquiry%20on%20Risk%20Management&body=I%20would%20like%20to%20discuss%20the%20risk%20management%20and%20governance%20structures%20of%20ACE." 
-                   class="text-xs uppercase tracking-widest text-gray-500 hover:text-theme-black underline transition-colors">
-                    Inquire about Risk & Governance
+                    Read Whitepaper
+                </button>
+                
+                <!-- Direct Risk Inquiry -->
+                <a href="mailto:ropefiasco@gmail.com?subject=Institutional%20Risk%20Inquiry&body=I%20am%20a%20qualified%20investor%20interested%20in%20discussing%20your%20risk%20mitigation%20strategies%20and%20governance%20structures." 
+                   class="inline-block border border-black bg-white text-theme-black px-10 py-4 text-xs uppercase tracking-widest hover:bg-gray-100 transition-all duration-300">
+                    Risk Inquiry
                 </a>
             </div>
 
-            <!-- CRYPTO WALLET SECTION (Secondary) -->
+            <!-- CRYPTO WALLET SECTION -->
             <div class="bg-white border border-black/10 p-6 mt-8">
                 <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Early Liquidity Contribution (Public)</p>
                 <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
@@ -167,35 +175,90 @@
         </div>
     </div>
 
-    <!-- VIEW 3: APPAREL STORE (Updated) -->
+    <!-- VIEW 3: WHITE PAPER (Embedded) -->
+    <div id="whitepaper-view" class="view-section hidden-view flex-grow flex flex-col p-6 md:p-12 pt-0 transition-opacity duration-500">
+        <div class="max-w-3xl mx-auto w-full">
+            
+            <!-- Back Button -->
+            <button onclick="showView('invest')" class="mb-8 text-xs uppercase tracking-widest text-gray-400 hover:text-theme-black flex items-center gap-2">
+                <span>← Back to Invest</span>
+            </button>
+
+            <!-- Whitepaper Content Container -->
+            <div class="bg-white border border-black/10 p-8 md:p-16 shadow-sm h-[70vh] overflow-y-auto whitepaper-scroll">
+                
+                <!-- Header -->
+                <div class="mb-12 border-b border-black/10 pb-8">
+                    <h1 class="text-2xl md:text-3xl font-bold mb-2">ACE: Athlete Capital Exchange</h1>
+                    <p class="text-sm text-gray-500 uppercase tracking-widest">A Decentralized Protocol for Tokenized Athlete Income Streams (TAIS)</p>
+                    <p class="text-xs text-gray-400 mt-2">Version 2.0 | November 2025</p>
+                </div>
+
+                <!-- Content Body -->
+                <div class="prose prose-sm max-w-none font-light text-theme-black">
+                    
+                    <h3 class="text-lg font-bold uppercase tracking-widest mb-4">1. Executive Summary</h3>
+                    <p class="mb-6">
+                        The introduction of Name, Image, and Likeness (NIL) rights has created a new asset class: the future earning potential of student-athletes. However, the current financial infrastructure is fragmented and predatory. ACE creates a "Value-Extraction & Acceleration" model, transforming illiquid NIL contracts into productive, liquid capital through compliant smart contract architecture.
+                    </p>
+
+                    <h3 class="text-lg font-bold uppercase tracking-widest mb-4">2. The Problem: Idle Capital</h3>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li><strong>The Liquidity Gap:</strong> Athletes face a timing mismatch between signing deals and receiving payments, driving them to predatory lenders.</li>
+                        <li><strong>Exclusionary Economics:</strong> Fans and small donors are excluded from the financial upside of the ecosystem they support.</li>
+                        <li><strong>Financial Illiteracy:</strong> Sudden wealth is often mismanaged without embedded financial guardrails.</li>
+                    </ul>
+
+                    <h3 class="text-lg font-bold uppercase tracking-widest mb-4">3. The Solution: TAIS Protocol</h3>
+                    <p class="mb-6">
+                        ACE introduces <strong>Tokenized Athlete Income Streams (TAIS)</strong>. Verified contracts are tokenized and deposited into a Smart Contract Escrow. Athletes borrow stablecoins against this collateral. The "Set-Off" mechanism automatically routes endorsement payments to the contract for repayment before releasing funds to the athlete, eliminating behavioral default risk.
+                    </p>
+
+                    <h3 class="text-lg font-bold uppercase tracking-widest mb-4 text-theme-orange">4. Risk Management & Governance</h3>
+                    <div class="bg-gray-50 p-6 border-l-4 border-theme-black mb-8">
+                        <p class="mb-4"><strong>4.1 Transfer Portability:</strong> ACE protocols require standardized contracts with portability clauses. If an athlete transfers, the receiving institution's Collective must buyout the debt obligation.</p>
+                        <p class="mb-4"><strong>4.2 Insurance Wrappers:</strong> A portion of protocol yield (2%) is diverted to an Insurance Pool to cover principal in events of career-ending injury or contract cancellation.</p>
+                        <p><strong>4.3 Regulatory Compliance:</strong> Participation is structured as DAO membership with rewards for active governance, distinguishing it from passive investment securities.</p>
+                    </div>
+
+                    <h3 class="text-lg font-bold uppercase tracking-widest mb-4">5. Conclusion</h3>
+                    <p>
+                        ACE is not just a loan; it is infrastructure. By applying institutional credit standards to sports finance, we solve the liquidity crisis while offering investors a secured, high-yield asset class rooted in real-world revenue.
+                    </p>
+
+                </div>
+
+                <!-- Call to Action Footer -->
+                <div class="mt-16 pt-8 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <span class="text-xs uppercase tracking-widest text-gray-500">Interested in the full technical documentation?</span>
+                    <a href="mailto:ropefiasco@gmail.com?subject=Full%20Technical%20Whitepaper%20Request" class="text-xs font-bold uppercase tracking-widest border-b border-black hover:text-gray-500 hover:border-gray-500 transition-colors">
+                        Request Full PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 4: APPAREL STORE -->
     <div id="apparel-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
-        <!-- FLOATING PIXELATED HOODIE -->
         <div class="mb-12 animate-float relative">
             <svg width="300" height="300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art drop-shadow-2xl">
-                <!-- Hood -->
                 <rect x="9" y="2" width="6" height="1" fill="#FF6B00"/>
                 <rect x="8" y="3" width="8" height="1" fill="#FF6B00"/>
                 <rect x="7" y="4" width="10" height="4" fill="#FF6B00"/>
-                <!-- Shoulders -->
                 <rect x="4" y="8" width="16" height="2" fill="#FF6B00"/>
-                <!-- Sleeves -->
                 <rect x="2" y="10" width="4" height="8" fill="#FF6B00"/>
                 <rect x="18" y="10" width="4" height="8" fill="#FF6B00"/>
-                <!-- Cuffs -->
                 <rect x="2" y="18" width="4" height="1" fill="#CC5500"/>
                 <rect x="18" y="18" width="4" height="1" fill="#CC5500"/>
-                <!-- Body -->
                 <rect x="6" y="10" width="12" height="10" fill="#FF6B00"/>
-                <!-- Pocket -->
                 <rect x="8" y="15" width="8" height="3" fill="#CC5500"/>
-                <!-- Drawstrings -->
                 <rect x="10" y="8" width="1" height="4" fill="#111111"/>
                 <rect x="13" y="8" width="1" height="4" fill="#111111"/>
             </svg>
         </div>
 
-        <!-- STORE CONTENT -->
         <div class="text-center space-y-8">
             <h1 class="text-sm md:text-base uppercase tracking-[0.3em] font-bold text-theme-black pixel-text">
                 Coming Soon
@@ -205,7 +268,6 @@
                 Limited run. Heavyweight cotton. Made in South Carolina.
             </p>
 
-            <!-- WAITLIST BUTTON (New) -->
             <a href="mailto:ropefiasco@gmail.com?subject=Apparel%20Waitlist%20Request&body=Please%20add%20me%20to%20the%20waitlist%20for%20the%20upcoming%20hoodie%20drop." 
                class="inline-block border border-black bg-theme-black text-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
                 Join Waitlist
@@ -265,7 +327,6 @@
         function copyAddress() {
             const address = "0xA1579026964EB668DCFc218872C4881155CCe11D";
             
-            // Fallback for iframe/restricted environments
             const textArea = document.createElement("textarea");
             textArea.value = address;
             document.body.appendChild(textArea);
@@ -286,7 +347,7 @@
         // Router
         function handleRoute() {
             const hash = window.location.hash.replace('#', '') || 'home';
-            if (['home', 'invest', 'apparel'].includes(hash)) {
+            if (['home', 'invest', 'apparel', 'whitepaper'].includes(hash)) {
                 showView(hash);
             } else {
                 showView('home');
