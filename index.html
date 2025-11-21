@@ -22,7 +22,7 @@
         
         .hover-trigger { transition: all 0.5s ease-in-out; }
 
-        /* Floating Animation for Hoodie - Enhanced Wind Effect */
+        /* Floating Animation for Hoodie */
         @keyframes float-wind {
             0% { transform: translateY(0px) rotate(0deg) scale(1); }
             25% { transform: translateY(-8px) rotate(1deg) scale(1); }
@@ -134,61 +134,74 @@
                 <p>
                     <span class="font-medium">The Thesis:</span> Student-athlete contracts are high-value receivables trapped in an illiquid market. ACE provides the infrastructure to factor these contracts, turning future cash flows into immediate working capital for the athlete.
                 </p>
+                <p>
+                    <span class="font-medium">The Economics of Acceleration:</span> Our yield is not inflationary. It is derived from the discount rate applied to these receivables. Investors capture the "liquidity premium" by providing capital when it is most valuable—today.
+                </p>
             </div>
 
             <!-- PRODUCTIVE CAPITAL MATRIX (Clickable) -->
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-left text-xs border-t border-black/10 pt-8 cursor-pointer">
                 
-                <div onclick="updateCalculator(12, 'The Transfer Bridge', 'Short-term liquidity for moving/housing expenses. High velocity repayment (30-90 days). Yield reflects the liquidity premium.')" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                <!-- Transfer Bridge -->
+                <div onclick="updateCalculator(12, 'The Transfer Bridge', 'Logic: High Yield / Short Duration. Capital commands a premium for immediate liquidity velocity (30-90 day term) to cover relocation costs.')" 
+                     class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 1</p>
                     <h3 class="font-bold text-sm mb-4">The Transfer Bridge</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Yield:</span> 12% APY</p>
+                        <p><span class="font-medium text-theme-black">Target APY:</span> 12-14%</p>
                     </div>
                 </div>
 
-                <div onclick="updateCalculator(10, 'Performance Accelerator', 'Capital for elite coaching to improve Draft stock. Medium duration (1 season). Yield reflects commercial loan rates.')" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                <!-- Performance Accelerator -->
+                <div onclick="updateCalculator(10, 'Performance Accelerator', 'Logic: Commercial Loan Rate. Medium duration (1 season). Risk is mitigated by potential draft stock increase. Capital used for coaching/nutrition.')" 
+                     class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 2</p>
                     <h3 class="font-bold text-sm mb-4">Performance Accelerator</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Yield:</span> 10% APY</p>
+                        <p><span class="font-medium text-theme-black">Target APY:</span> 10-12%</p>
                     </div>
                 </div>
 
-                <div onclick="updateCalculator(8, 'Family Anchor', 'Multi-year contract factoring to stabilize home life. Low risk due to corporate payer (Collective/Brand). Yield comparable to corporate bonds.')" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                <!-- Family Anchor -->
+                <div onclick="updateCalculator(8, 'Family Anchor', 'Logic: Corporate Bond Equivalent. Backed by multi-year contracts from major brands/collectives. Low default risk due to corporate payer source.')" 
+                     class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 3</p>
                     <h3 class="font-bold text-sm mb-4">Family Anchor</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Yield:</span> 8% APY</p>
+                        <p><span class="font-medium text-theme-black">Target APY:</span> 8-10%</p>
                     </div>
                 </div>
 
-                 <div onclick="updateCalculator(15, 'Brand Empire', 'Revenue share on variable ad income. Higher risk/reward profile similar to Venture Debt. Yield reflects volatility premium.')" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                 <!-- Brand Empire -->
+                 <div onclick="updateCalculator(15, 'Brand Empire', 'Logic: Venture Debt. Revenue-share model based on variable ad revenue. Higher risk/reward profile reflecting volatility premium of social platforms.')" 
+                      class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 4</p>
                     <h3 class="font-bold text-sm mb-4">Brand Empire</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Yield:</span> 15% APY</p>
+                        <p><span class="font-medium text-theme-black">Target APY:</span> 15%+</p>
                     </div>
                 </div>
 
-                 <div onclick="updateCalculator(5, 'Future Trust', 'Capital locked in US Treasuries/AUSD. Risk-free rate for principal protection and long-term growth. Yield matches federal rates.')" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                 <!-- Future Trust -->
+                 <div onclick="updateCalculator(5, 'Future Trust', 'Logic: Risk-Free Rate. Capital is secured in low-volatility US Treasury-backed assets (AUSD/USDC) for long-term wealth preservation.')" 
+                      class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 5</p>
                     <h3 class="font-bold text-sm mb-4">Future Trust</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Yield:</span> 5% APY</p>
+                        <p><span class="font-medium text-theme-black">Target APY:</span> 4-5%</p>
                     </div>
                 </div>
             </div>
 
-            <!-- CALCULATOR SECTION (New) -->
+            <!-- CALCULATOR SECTION (Updated with Yield Logic) -->
             <div id="calculator" class="bg-gray-50 p-8 border border-black/10 mt-8 text-left max-w-xl mx-auto transition-all duration-500">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-theme-black">Yield Calculator</h3>
                     <span id="calc-archetype" class="text-[10px] uppercase tracking-widest text-theme-orange font-medium">Performance Accelerator</span>
                 </div>
                 
-                <p id="calc-description" class="text-xs text-gray-500 mb-8 leading-relaxed">
-                    Capital for elite coaching to improve Draft stock. Medium duration (1 season). Yield reflects commercial loan rates.
+                <p id="calc-description" class="text-xs text-gray-500 mb-8 leading-relaxed border-l-2 border-theme-orange pl-4">
+                    Logic: Commercial Loan Rate. Medium duration (1 season). Risk is mitigated by potential draft stock increase. Capital used for coaching/nutrition.
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -198,7 +211,7 @@
                                class="w-full bg-white border border-gray-300 p-3 text-sm font-mono focus:outline-none focus:border-theme-black">
                     </div>
                     <div>
-                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">Target APY (%)</label>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">Projected APY (%)</label>
                         <input type="number" id="selectedAPY" value="10" readonly 
                                class="w-full bg-gray-100 border border-gray-300 p-3 text-sm font-mono text-gray-500 cursor-not-allowed">
                     </div>
@@ -206,7 +219,7 @@
 
                 <div class="border-t border-black/10 pt-6 flex justify-between items-end">
                     <div>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Projected Annual Yield</p>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Est. Annual Yield</p>
                         <p class="text-2xl font-bold text-theme-orange mt-1">$<span id="annualReturn">1,000</span></p>
                     </div>
                     <div class="text-right">
@@ -214,7 +227,7 @@
                         <p class="text-2xl font-bold text-theme-black mt-1">$<span id="totalValue">11,000</span></p>
                     </div>
                 </div>
-                <p class="text-[9px] text-gray-400 mt-4 italic">*Yields derived from factoring discount rates. Past performance does not guarantee future results.</p>
+                <p class="text-[9px] text-gray-400 mt-4 italic">*Yields are dynamic estimates based on historical factoring rates and risk premiums. Not a guarantee of future performance.</p>
             </div>
 
             <!-- ACTION BUTTONS -->
