@@ -22,7 +22,7 @@
         
         .hover-trigger { transition: all 0.5s ease-in-out; }
 
-        /* Floating Animation for Hoodie */
+        /* Floating Animation for Hoodie - Enhanced Wind Effect */
         @keyframes float-wind {
             0% { transform: translateY(0px) rotate(0deg) scale(1); }
             25% { transform: translateY(-8px) rotate(1deg) scale(1); }
@@ -136,63 +136,78 @@
                 </p>
             </div>
 
-            <!-- PRODUCTIVE CAPITAL MATRIX (New Visual) -->
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-left text-xs border-t border-black/10 pt-8">
+            <!-- PRODUCTIVE CAPITAL MATRIX (Clickable) -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-left text-xs border-t border-black/10 pt-8 cursor-pointer">
                 
-                <!-- Column 1 -->
-                <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                <div onclick="updateCalculator(12)" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 1</p>
                     <h3 class="font-bold text-sm mb-4">The Transfer Bridge</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Problem:</span> Gap between signing & relocation costs.</p>
-                        <p><span class="font-medium text-theme-black">Input:</span> $15k (Signing Bonus)</p>
-                        <p><span class="font-medium text-theme-black">Yield:</span> 12% APY (High Velocity)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 12% APY</p>
                     </div>
                 </div>
 
-                <!-- Column 2 -->
-                <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                <div onclick="updateCalculator(10)" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 2</p>
                     <h3 class="font-bold text-sm mb-4">Performance Accelerator</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Problem:</span> Needs elite coaching for Draft stock.</p>
-                        <p><span class="font-medium text-theme-black">Input:</span> $40k (Senior NIL)</p>
-                        <p><span class="font-medium text-theme-black">Yield:</span> 10% APY (Medium Duration)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 10% APY</p>
                     </div>
                 </div>
 
-                <!-- Column 3 -->
-                <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                <div onclick="updateCalculator(8)" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 3</p>
                     <h3 class="font-bold text-sm mb-4">Family Anchor</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Problem:</span> Financial stress affecting focus.</p>
-                        <p><span class="font-medium text-theme-black">Input:</span> $100k (Multi-Year Deal)</p>
-                        <p><span class="font-medium text-theme-black">Yield:</span> 8% APY (Corporate Backed)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 8% APY</p>
                     </div>
                 </div>
 
-                 <!-- Column 4 -->
-                 <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                 <div onclick="updateCalculator(15)" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 4</p>
                     <h3 class="font-bold text-sm mb-4">Brand Empire</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Problem:</span> High reach, low production budget.</p>
-                        <p><span class="font-medium text-theme-black">Input:</span> $25k (Ad Revenue)</p>
-                        <p><span class="font-medium text-theme-black">Yield:</span> 15% APY (Revenue Share)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 15% APY</p>
                     </div>
                 </div>
 
-                 <!-- Column 5 -->
-                 <div class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
+                 <div onclick="updateCalculator(5)" class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 5</p>
                     <h3 class="font-bold text-sm mb-4">Future Trust</h3>
                     <div class="space-y-3 text-gray-600">
-                        <p><span class="font-medium text-theme-black">Problem:</span> High earner risking spend-down.</p>
-                        <p><span class="font-medium text-theme-black">Input:</span> $500k (Locked Protocol)</p>
-                        <p><span class="font-medium text-theme-black">Yield:</span> 5% APY (Risk Free)</p>
+                        <p><span class="font-medium text-theme-black">Yield:</span> 5% APY</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- CALCULATOR SECTION (New) -->
+            <div id="calculator" class="bg-gray-50 p-8 border border-black/10 mt-8 text-left max-w-xl mx-auto">
+                <h3 class="text-xs font-bold uppercase tracking-widest mb-6 text-theme-black">Yield Calculator</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">Investment Amount ($)</label>
+                        <input type="number" id="investAmount" value="10000" oninput="calculateYield()" 
+                               class="w-full bg-white border border-gray-300 p-3 text-sm font-mono focus:outline-none focus:border-theme-black">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">Selected APY (%)</label>
+                        <input type="number" id="selectedAPY" value="10" readonly 
+                               class="w-full bg-gray-100 border border-gray-300 p-3 text-sm font-mono text-gray-500 cursor-not-allowed">
+                    </div>
+                </div>
+
+                <div class="border-t border-black/10 pt-6 flex justify-between items-end">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Projected Annual Return</p>
+                        <p class="text-2xl font-bold text-theme-orange mt-1">$<span id="annualReturn">1,000</span></p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Total Value (1 Year)</p>
+                        <p class="text-2xl font-bold text-theme-black mt-1">$<span id="totalValue">11,000</span></p>
+                    </div>
+                </div>
+                <p class="text-[9px] text-gray-400 mt-4 italic">*Projections are estimates based on historical APY targets. Not financial advice.</p>
             </div>
 
             <!-- ACTION BUTTONS -->
@@ -289,9 +304,10 @@
         </div>
     </div>
 
-    <!-- VIEW 4: APPAREL STORE -->
+    <!-- VIEW 4: APPAREL STORE (Updated - Black/White 3D Hoodie) -->
     <div id="apparel-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
         
+        <!-- HERO PRODUCT IMAGE (Scaled Down) -->
         <div class="mb-12 animate-float-wind relative">
             <!-- 
                Orange 3D-Style Pixel Hoodie with Person
@@ -393,6 +409,38 @@
             history.replaceState(null, null, '#' + viewName);
         }
 
+        // CALCULATOR LOGIC
+        function updateCalculator(apy) {
+            document.getElementById('selectedAPY').value = apy;
+            calculateYield();
+        }
+
+        function calculateYield() {
+            const amount = parseFloat(document.getElementById('investAmount').value) || 0;
+            const apy = parseFloat(document.getElementById('selectedAPY').value) || 0;
+            
+            const yieldAmount = amount * (apy / 100);
+            const total = amount + yieldAmount;
+
+            document.getElementById('annualReturn').innerText = yieldAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('totalValue').innerText = total.toLocaleString('en-US', {maximumFractionDigits: 0});
+        }
+
+        function copyAddress() {
+            const address = "0xA1579026964EB668DCFc218872C4881155CCe11D";
+            const textArea = document.createElement("textarea");
+            textArea.value = address;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                const msg = document.getElementById('copy-msg');
+                msg.classList.remove('opacity-0');
+                setTimeout(() => msg.classList.add('opacity-0'), 2000);
+            } catch (err) { console.error('Unable to copy', err); }
+            document.body.removeChild(textArea);
+        }
+
         // Router
         function handleRoute() {
             const hash = window.location.hash.replace('#', '') || 'home';
@@ -403,7 +451,10 @@
             }
         }
 
-        window.addEventListener('DOMContentLoaded', handleRoute);
+        window.addEventListener('DOMContentLoaded', () => {
+            handleRoute();
+            calculateYield(); // Init calculator
+        });
         window.addEventListener('hashchange', handleRoute);
     </script>
 </body>
