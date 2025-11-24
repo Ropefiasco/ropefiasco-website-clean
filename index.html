@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ropefiasco | ACE Protocol</title>
+    <title>Ropefiasco | Projects</title>
     <meta name="description" content="Ropefiasco - The Intersection of Culture and Capital">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -103,35 +103,86 @@
         <a href="#home" onclick="showView('home')" class="text-xs uppercase tracking-widest font-medium hover-trigger hover:text-gray-500 cursor-pointer">Ropefiasco</a>
         
         <div class="flex space-x-12 text-xs uppercase tracking-widest font-medium">
-            <a href="#invest" onclick="showView('invest')" class="hover-trigger hover:text-gray-500 cursor-pointer">ACE Protocol</a>
+            <!-- Projects Link (New) -->
+            <a href="#projects" onclick="showView('projects')" class="hover-trigger hover:text-gray-500 cursor-pointer">Projects</a>
             <a href="#apparel" onclick="showView('apparel')" class="hover-trigger hover:text-gray-500 cursor-pointer">Apparel</a>
-            <a href="#beam" onclick="showView('beam')" class="hover-trigger hover:text-gray-500 cursor-pointer text-green-600 font-bold">BEAM</a>
         </div>
     </nav>
 
-    <!-- VIEW 1: HOME / MANIFESTO -->
+    <!-- VIEW 1: HOME / MANIFESTO (Tightened) -->
     <div id="home-view" class="view-section flex-grow flex flex-col p-6 md:p-12 pt-0 md:pt-0 transition-opacity duration-500">
         <div class="max-w-xl mx-auto flex-grow flex items-center py-12 md:py-20">
             <div class="space-y-10 text-lg md:text-xl font-light leading-relaxed">
                 <p>
-                    <span class="font-bold">Ropefiasco</span> is the parent laboratory for three distinct verticals: <span class="font-medium">ACE</span> (Institutional Finance), <span class="font-medium">RFSC</span> (Apparel), and <span class="font-medium">BEAM</span> (Utility Infrastructure). We exist to bridge the gap between cultural velocity and financial rigor.
+                    <span class="font-bold">Ropefiasco</span> is a venture laboratory bridging cultural velocity with financial rigor. We architect infrastructure for the new economy.
                 </p>
                 <p>
-                    Our flagship initiative, <span class="font-medium">ACE (Athlete Capital Exchange)</span>, is a regulated protocol designed to tokenize and factor athlete income streams. We do not merely "lend"; we acquire high-grade receivables, allowing athletes to extract value today to accelerate their human capital development.
+                    Our work focuses on "Productive Capital"—transforming static assets into liquid, yield-bearing instruments. By leveraging decentralized protocols and compliant legal frameworks, we unlock value where traditional markets see only risk.
                 </p>
                 <p>
-                    We are also deploying <span class="font-medium">BEAM</span>, a decentralized micro-lending protocol designed to bridge on-chain liquidity with real-world borrowers. By replacing traditional collateral with biometric identity, BEAM solves the "Sybil Attack" problem, enabling under-collateralized lending for the unbanked.
+                    Whether digitizing human capital in sports or democratizing credit access in emerging markets, our mission is singular: to build the rails that allow potential to become power.
                 </p>
-                <p>
-                    This financial architecture is balanced by our creative output—a minimalist apparel line that serves as the physical "Proof of Culture" for our community.
-                </p>
+                
+                <div class="pt-8">
+                    <button onclick="showView('projects')" class="border-b border-black pb-1 text-xs uppercase tracking-widest hover:text-gray-500 hover:border-gray-500 transition-colors">
+                        Explore Projects &rarr;
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- VIEW 2: INVEST / ACE PROTOCOL -->
+    <!-- VIEW 2: PROJECTS DIRECTORY (New) -->
+    <div id="projects-view" class="view-section hidden-view flex-grow flex flex-col md:flex-row p-6 md:p-12 gap-6 transition-opacity duration-500 h-full">
+        
+        <!-- Project 1: ACE -->
+        <div class="w-full md:w-1/2 bg-white border border-black/10 p-8 md:p-12 flex flex-col justify-between hover:border-theme-orange transition-colors cursor-pointer group" onclick="showView('invest')">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-2 h-2 bg-theme-orange rounded-full"></div>
+                    <span class="text-xs uppercase tracking-widest text-gray-400">Institutional Finance</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-4 group-hover:text-theme-orange transition-colors">ACE Protocol</h2>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                    A regulated protocol for tokenizing and factoring athlete income streams. ACE transforms illiquid NIL contracts into secured, high-yield productive capital.
+                </p>
+            </div>
+            <div class="mt-8">
+                <span class="text-xs uppercase tracking-widest border-b border-gray-200 pb-1 group-hover:border-theme-orange">Enter Protocol</span>
+            </div>
+        </div>
+
+        <!-- Project 2: BEAM -->
+        <div class="w-full md:w-1/2 bg-black border border-gray-800 p-8 md:p-12 flex flex-col justify-between hover:border-green-500 transition-colors cursor-pointer group relative overflow-hidden" onclick="showView('beam')">
+            <!-- Ambient BG for BEAM card -->
+            <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(34,197,94,0.1),transparent_70%)]"></div>
+            
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="text-xs uppercase tracking-widest text-gray-500">Utility Infrastructure</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-4 text-white group-hover:text-green-500 transition-colors">BEAM</h2>
+                <p class="text-sm text-gray-400 font-light leading-relaxed">
+                    Bio-Economic Access Module. A decentralized micro-lending protocol using biometric identity to solve the Sybil problem and enable under-collateralized credit.
+                </p>
+            </div>
+            <div class="mt-8 relative z-10">
+                <span class="text-xs uppercase tracking-widest text-white border-b border-gray-800 pb-1 group-hover:border-green-500">Launch App</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- VIEW 3: ACE PROTOCOL (Existing Invest View) -->
     <div id="invest-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
-        <!-- Content same as previous, abbreviated for brevity -->
+        
+        <div class="w-full max-w-4xl mb-8">
+            <button onclick="showView('projects')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-theme-black flex items-center gap-2">
+                <span>← Back to Projects</span>
+            </button>
+        </div>
+
         <!-- SPINNING PIXEL GLOBE -->
         <div class="mb-12 relative">
             <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art animate-spin-slow drop-shadow-xl">
@@ -163,7 +214,8 @@
 
             <!-- PRODUCTIVE CAPITAL MATRIX (Clickable) -->
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-left text-xs border-t border-black/10 pt-8 cursor-pointer">
-                <!-- Archetypes logic preserved -->
+                
+                <!-- Transfer Bridge -->
                 <div onclick="updateCalculator(12, 'The Transfer Bridge', 'Logic: High Yield / Short Duration. Capital commands a premium for immediate liquidity velocity (30-90 day term) to cover relocation costs.')" 
                      class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 1</p>
@@ -172,6 +224,8 @@
                         <p><span class="font-medium text-theme-black">Target APY:</span> 12-14%</p>
                     </div>
                 </div>
+
+                <!-- Performance Accelerator -->
                 <div onclick="updateCalculator(10, 'Performance Accelerator', 'Logic: Commercial Loan Rate. Medium duration (1 season). Risk is mitigated by potential draft stock increase. Capital used for coaching/nutrition.')" 
                      class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 2</p>
@@ -180,6 +234,8 @@
                         <p><span class="font-medium text-theme-black">Target APY:</span> 10-12%</p>
                     </div>
                 </div>
+
+                <!-- Family Anchor -->
                 <div onclick="updateCalculator(8, 'Family Anchor', 'Logic: Corporate Bond Equivalent. Backed by multi-year contracts from major brands/collectives. Low default risk due to corporate payer source.')" 
                      class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 3</p>
@@ -188,6 +244,8 @@
                         <p><span class="font-medium text-theme-black">Target APY:</span> 8-10%</p>
                     </div>
                 </div>
+
+                 <!-- Brand Empire -->
                  <div onclick="updateCalculator(15, 'Brand Empire', 'Logic: Venture Debt. Revenue-share model based on variable ad revenue. Higher risk/reward profile reflecting volatility premium of social platforms.')" 
                       class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 4</p>
@@ -196,6 +254,8 @@
                         <p><span class="font-medium text-theme-black">Target APY:</span> 15%+</p>
                     </div>
                 </div>
+
+                 <!-- Future Trust -->
                  <div onclick="updateCalculator(5, 'Future Trust', 'Logic: Risk-Free Rate. Capital is secured in low-volatility US Treasury-backed assets (AUSD/USDC) for long-term wealth preservation.')" 
                       class="p-4 bg-white border border-black/5 hover:border-theme-orange transition-colors group">
                     <p class="uppercase tracking-widest text-gray-400 mb-2 group-hover:text-theme-orange">Archetype 5</p>
@@ -206,7 +266,7 @@
                 </div>
             </div>
 
-            <!-- CALCULATOR SECTION -->
+            <!-- CALCULATOR SECTION (Updated with Yield Logic) -->
             <div id="calculator" class="bg-gray-50 p-8 border border-black/10 mt-8 text-left max-w-xl mx-auto transition-all duration-500">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-theme-black">Yield Calculator</h3>
@@ -272,21 +332,29 @@
         </div>
     </div>
 
-    <!-- VIEW 3: WHITE PAPER (Embedded) -->
+    <!-- VIEW 4: WHITE PAPER (Embedded) -->
     <div id="whitepaper-view" class="view-section hidden-view flex-grow flex flex-col p-6 md:p-12 pt-0 transition-opacity duration-500">
         <div class="max-w-3xl mx-auto w-full">
+            
             <button onclick="showView('invest')" class="mb-8 text-xs uppercase tracking-widest text-gray-400 hover:text-theme-black flex items-center gap-2">
                 <span>← Back to Protocol</span>
             </button>
+
             <div class="bg-white border border-black/10 p-8 md:p-16 shadow-sm h-[70vh] overflow-y-auto whitepaper-scroll">
+                
                 <div class="mb-12 border-b border-black/10 pb-8">
                     <h1 class="text-2xl md:text-3xl font-bold mb-2">ACE: Athlete Capital Exchange</h1>
                     <p class="text-sm text-gray-500 uppercase tracking-widest">Value-Extraction & Acceleration Protocol</p>
                     <p class="text-xs text-gray-400 mt-2">Version 3.4 | Institutional Draft</p>
                 </div>
+
                 <div class="prose prose-sm max-w-none font-light text-theme-black">
+                    
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4">1. Executive Summary</h3>
-                    <p class="mb-6">The asset class of "Human Capital" in sports has historically been illiquid. ACE creates a standardized protocol to factor and tokenize these future income streams. By shifting from a lending model to a receivables factoring model, we create a secured asset class that offers predictable yield to investors while providing acceleration capital to athletes.</p>
+                    <p class="mb-6">
+                        The asset class of "Human Capital" in sports has historically been illiquid. ACE creates a standardized protocol to factor and tokenize these future income streams. By shifting from a lending model to a receivables factoring model, we create a secured asset class that offers predictable yield to investors while providing acceleration capital to athletes.
+                    </p>
+
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4">2. Market Inefficiency</h3>
                     <ul class="list-disc pl-5 mb-6 space-y-2">
                         <li><strong>Liquidity Mismatch:</strong> Contract value is high, but cash flow is slow.</li>
@@ -294,34 +362,51 @@
                         <li><strong>Access:</strong> Institutional investors lack a vehicle to access this uncorrelated asset class.</li>
                         <li><strong>Revenue Gap:</strong> Universities currently lack a mechanism to capture revenue from outside NIL deals.</li>
                     </ul>
+
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4">3. The Solution: TAIS Protocol</h3>
-                    <p class="mb-6"><strong>Tokenized Athlete Income Streams (TAIS)</strong> represent a legal claim on future contract revenue. ACE utilizes a "Notice of Assignment" framework where the Payer (Brand/Collective) directs funds to the Protocol's Smart Contract, not the athlete. This creates a "closed-loop" payment system.</p>
-                    <p class="mb-6"><strong>Split-Tranche Trusts:</strong> To balance immediate needs with long-term wealth, ACE splits capital into Tranche A (Acceleration - 60%) for immediate use and Tranche B (Preservation - 40%) locked in a yield-bearing trust until graduation.</p>
+                    <p class="mb-6">
+                        <strong>Tokenized Athlete Income Streams (TAIS)</strong> represent a legal claim on future contract revenue. ACE utilizes a "Notice of Assignment" framework where the Payer (Brand/Collective) directs funds to the Protocol's Smart Contract, not the athlete. This creates a "closed-loop" payment system.
+                    </p>
+                    
+                    <p class="mb-6">
+                        <strong>Split-Tranche Trusts:</strong> To balance immediate needs with long-term wealth, ACE splits capital into Tranche A (Acceleration - 60%) for immediate use and Tranche B (Preservation - 40%) locked in a yield-bearing trust until graduation.
+                    </p>
+
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4 text-theme-orange">4. Risk & Governance</h3>
                     <div class="bg-gray-50 p-6 border-l-4 border-theme-black mb-8">
                         <p class="mb-4"><strong>4.1 Legal Assignment:</strong> We do not rely solely on code. We utilize tri-party agreements to secure the income stream at the source.</p>
                         <p class="mb-4"><strong>4.2 Insurance Wrappers:</strong> Yield reserves fund an Insurance Pool to protect principal against "Force Majeure" events (injury/cancellation).</p>
                         <p class="mb-4"><strong>4.3 Compliance:</strong> All liquidity providers undergo KYC/AML. The protocol is built to interface with traditional banking rails for fiat settlement.</p>
-                        <p><strong>4.4 Institutional Licensing:</strong> Smart contracts automatically route licensing royalties to Universities for IP usage, aligning institutional incentives.</p>
+                        <p><strong>4.4 Institutional Licensing:</strong> Smart contracts automatically route licensing royalties to Universities for IP usage, adhering to standard IP commercialization practices.</p>
                     </div>
+
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4">5. Conclusion</h3>
-                    <p>ACE is the bridge between the efficiency of DeFi and the legal rigor of structured finance. We are building the Nasdaq for Human Potential.</p>
+                    <p>
+                        ACE is the bridge between the efficiency of DeFi and the legal rigor of structured finance. We are building the Nasdaq for Human Potential.
+                    </p>
+                    
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4">6. Disclaimer</h3>
-                    <p class="text-xs text-gray-500">This document is for informational purposes only. It does not constitute an offer to sell or a solicitation of an offer to buy any securities. The ACE Protocol utilizes blockchain technology for settlement efficiency; however, all underlying assets are secured by legal contracts in the physical world. "Programmatically enforced" refers to the automated execution of pre-agreed logic, not a guarantee of solvency. The protocol is designed to align with NCAA interim guidelines and applicable state NIL laws.</p>
+                    <p class="text-xs text-gray-500">
+                        This document is for informational purposes only. It does not constitute an offer to sell or a solicitation of an offer to buy any securities. The ACE Protocol utilizes blockchain technology for settlement efficiency; however, all underlying assets are secured by legal contracts in the physical world. "Programmatically enforced" refers to the automated execution of pre-agreed logic, not a guarantee of solvency. The protocol is designed to align with NCAA interim guidelines and applicable state NIL laws.
+                    </p>
+
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4 mt-8">References</h3>
                     <ul class="list-disc pl-5 mb-6 space-y-2 text-xs text-gray-500">
                          <li>Buterin, V. (2014). Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform.</li>
                          <li>DL Research. (2025). The Katana Flywheel: Rethinking Incentives and Liquidity for Sustainability.</li>
                          <li>NCAA. (2021). Name, Image, Likeness Policy. Retrieved from <a href="https://www.ncaa.org/sports/2021/7/9/name-image-likeness.aspx" target="_blank" class="underline">ncaa.org</a></li>
                     </ul>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- VIEW 4: APPAREL STORE -->
+    <!-- VIEW 5: APPAREL STORE -->
     <div id="apparel-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center px-6 pb-20 transition-opacity duration-500">
+        
         <div class="mb-12 animate-float-wind relative">
+            <!-- Orange 3D Hoodie -->
             <svg width="400" height="400" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="pixel-art pixel-blur drop-shadow-2xl transform scale-100">
                 <rect x="26" y="10" width="12" height="6" fill="#A64500"/>
                 <rect x="29" y="11" width="6" height="5" fill="#8D5524"/> 
@@ -352,6 +437,7 @@
                 <rect x="42" y="20" width="2" height="24" fill="#A64500"/>
             </svg>
         </div>
+
         <div class="text-center space-y-10">
             <h1 class="text-4xl md:text-6xl font-bold text-theme-black uppercase tracking-tighter">DROP 001</h1>
             <p class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-widest">Restricted Access / Limited Release / Heavyweight Cotton</p>
@@ -368,15 +454,15 @@
         </div>
     </div>
 
-    <!-- VIEW 5: BEAM (New Bio-Credit Section) -->
+    <!-- VIEW 6: BEAM (Bio-Credit) -->
     <div id="beam-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-start min-h-screen beam-theme relative overflow-y-auto beam-scroll pb-20 pt-12">
         <!-- Background Ambient Glow -->
         <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(34,197,94,0.15),transparent_70%)] fixed"></div>
 
         <!-- --- APP WIDGET --- -->
         <div class="w-full max-w-md p-6 z-10 mb-16">
-            <!-- Header -->
-            <div class="flex items-center justify-between mb-10 border-b border-gray-800 pb-4">
+            <!-- App Content same as before -->
+             <div class="flex items-center justify-between mb-10 border-b border-gray-800 pb-4">
                 <div class="flex items-center gap-2">
                     <div class="bg-green-500 text-black p-1.5 rounded">
                         <i class="ph-bold ph-lightning w-5 h-5"></i>
@@ -467,7 +553,6 @@
                     <li><strong class="text-white">Adoption:</strong> With Worldcoin infrastructure live in San José, BEAM activates financial utility for verified users immediately.</li>
                 </ul>
             </div>
-
             <!-- Why Ropefiasco? -->
             <div class="bg-green-900/10 border border-green-500/30 p-6 rounded-xl text-center">
                 <h3 class="text-sm font-bold text-green-400 uppercase tracking-widest mb-2">Why Ropefiasco?</h3>
@@ -475,7 +560,12 @@
                     "Ropefiasco views crypto not just as a trading asset, but as essential infrastructure for enterprise. BEAM represents our commitment to building 'Utility Layer' applications that generate real yield from real economic activity."
                 </p>
             </div>
-
+            
+             <div class="w-full max-w-4xl mb-8">
+                <button onclick="showView('projects')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-white flex items-center gap-2">
+                    <span>← Back to Projects</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -648,7 +738,7 @@
         // Router
         function handleRoute() {
             const hash = window.location.hash.replace('#', '') || 'home';
-            if (['home', 'invest', 'apparel', 'whitepaper', 'beam'].includes(hash)) {
+            if (['home', 'invest', 'apparel', 'whitepaper', 'beam', 'projects'].includes(hash)) {
                 showView(hash);
             } else {
                 showView('home');
