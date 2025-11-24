@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons (For BEAM) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         /* Base overrides */
@@ -54,6 +56,23 @@
         
         /* Blur effect for pixel art */
         .pixel-blur { filter: blur(0.5px); }
+
+        /* BEAM Specific Styles */
+        .beam-theme {
+            font-family: 'Space Grotesk', monospace; /* Fallback if font fails */
+            background-color: #000;
+            color: #fff;
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -84,6 +103,7 @@
         <div class="flex space-x-12 text-xs uppercase tracking-widest font-medium">
             <a href="#invest" onclick="showView('invest')" class="hover-trigger hover:text-gray-500 cursor-pointer">ACE Protocol</a>
             <a href="#apparel" onclick="showView('apparel')" class="hover-trigger hover:text-gray-500 cursor-pointer">Apparel</a>
+            <a href="#beam" onclick="showView('beam')" class="hover-trigger hover:text-gray-500 cursor-pointer text-green-600 font-bold">BEAM</a>
         </div>
     </nav>
 
@@ -272,7 +292,7 @@
                 <div class="mb-12 border-b border-black/10 pb-8">
                     <h1 class="text-2xl md:text-3xl font-bold mb-2">ACE: Athlete Capital Exchange</h1>
                     <p class="text-sm text-gray-500 uppercase tracking-widest">Value-Extraction & Acceleration Protocol</p>
-                    <p class="text-xs text-gray-400 mt-2">Version 3.3 | Institutional Draft</p>
+                    <p class="text-xs text-gray-400 mt-2">Version 3.4 | Institutional Draft</p>
                 </div>
 
                 <div class="prose prose-sm max-w-none font-light text-theme-black">
@@ -304,7 +324,7 @@
                         <p class="mb-4"><strong>4.1 Legal Assignment:</strong> We do not rely solely on code. We utilize tri-party agreements to secure the income stream at the source.</p>
                         <p class="mb-4"><strong>4.2 Insurance Wrappers:</strong> Yield reserves fund an Insurance Pool to protect principal against "Force Majeure" events (injury/cancellation).</p>
                         <p class="mb-4"><strong>4.3 Compliance:</strong> All liquidity providers undergo KYC/AML. The protocol is built to interface with traditional banking rails for fiat settlement.</p>
-                        <p><strong>4.4 Institutional Licensing:</strong> Smart contracts automatically route licensing royalties to Universities for IP usage, adhering to standard IP commercialization practices.</p>
+                        <p><strong>4.4 Institutional Licensing:</strong> Smart contracts automatically route licensing royalties to Universities for IP usage, aligning institutional incentives.</p>
                     </div>
 
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4">5. Conclusion</h3>
@@ -314,7 +334,7 @@
                     
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4">6. Disclaimer</h3>
                     <p class="text-xs text-gray-500">
-                        This document is for informational purposes only. It does not constitute an offer to sell or a solicitation of an offer to buy any securities. The ACE Protocol utilizes blockchain technology for settlement efficiency; however, all underlying assets are secured by legal contracts in the physical world. "Programmatically enforced" refers to the automated execution of pre-agreed logic, not a guarantee of solvency.
+                        This document is for informational purposes only. It does not constitute an offer to sell or a solicitation of an offer to buy any securities. The ACE Protocol utilizes blockchain technology for settlement efficiency; however, all underlying assets are secured by legal contracts in the physical world. "Programmatically enforced" refers to the automated execution of pre-agreed logic, not a guarantee of solvency. The protocol is designed to align with NCAA interim guidelines and applicable state NIL laws.
                     </p>
 
                     <h3 class="text-lg font-bold uppercase tracking-widest mb-4 mt-8">References</h3>
@@ -393,21 +413,100 @@
         </div>
     </div>
 
+    <!-- VIEW 5: BEAM (New Bio-Credit Section) -->
+    <div id="beam-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-center min-h-screen beam-theme relative overflow-hidden">
+        <!-- Background Ambient Glow -->
+        <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(34,197,94,0.15),transparent_70%)]"></div>
+
+        <div class="w-full max-w-md p-6 z-10">
+            
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-10 border-b border-gray-800 pb-4">
+                <div class="flex items-center gap-2">
+                    <div class="bg-green-500 text-black p-1.5 rounded">
+                        <i class="ph-bold ph-lightning w-5 h-5"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold tracking-widest">BEAM</h1>
+                </div>
+                <div id="status-badge" class="text-xs font-bold px-3 py-1 rounded-full border border-gray-600 text-gray-400">
+                    NOT VERIFIED
+                </div>
+            </div>
+
+            <!-- Main Card -->
+            <div class="bg-gray-900/80 backdrop-blur-md border border-gray-800 rounded-2xl p-8 shadow-2xl neon-glow">
+                
+                <!-- Dashboard Display -->
+                <div class="mb-8 text-center">
+                    <p class="text-gray-400 text-sm mb-2 uppercase tracking-wider">Credit Limit</p>
+                    <div id="credit-display" class="text-5xl font-bold text-white mb-2">$0</div>
+                    <div id="loan-warning" class="hidden inline-flex items-center gap-1 bg-red-500/10 text-red-400 px-3 py-1 rounded-full text-xs mt-2">
+                        <i class="ph-fill ph-warning"></i> Due: $52.00
+                    </div>
+                </div>
+
+                <!-- Action Buttons Area -->
+                <div id="action-container" class="space-y-4">
+                    
+                    <!-- State 1: Verify -->
+                    <button id="btn-verify" onclick="handleVerify()" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-3">
+                        <i class="ph-bold ph-lock-key w-5 h-5"></i>
+                        Verify with World ID
+                    </button>
+
+                    <!-- State 2: Borrow (Hidden initially) -->
+                    <button id="btn-borrow" onclick="handleBorrow()" class="hidden w-full bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-3">
+                        <i class="ph-bold ph-currency-dollar w-5 h-5"></i>
+                        Get $50 Instant Cash
+                    </button>
+
+                    <!-- State 3: Repay (Hidden initially) -->
+                    <button id="btn-repay" onclick="handleRepay()" class="hidden w-full bg-gray-800 hover:bg-gray-700 border border-gray-600 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-3">
+                        <i class="ph-bold ph-check-circle w-5 h-5"></i>
+                        Repay Loan ($52)
+                    </button>
+
+                    <!-- State 4: Success (Hidden initially) -->
+                    <div id="state-success" class="hidden text-center animate-fade-in">
+                        <p class="text-green-400 font-bold text-lg mb-4">You leveled up!</p>
+                        <button onclick="resetDemo()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl">
+                            Access Level 2 ($100)
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Footer Status Message -->
+                <div class="mt-6 text-center h-6">
+                    <p id="status-msg" class="text-xs text-gray-500 animate-pulse">Welcome to BEAM.</p>
+                </div>
+            </div>
+            
+            <!-- Trust Badge -->
+            <div class="mt-8 flex justify-center gap-4 opacity-30 grayscale">
+                <div class="flex items-center gap-1 text-xs text-white">
+                    <i class="ph-fill ph-shield-check"></i> Secured on World Chain
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- FOOTER -->
-    <footer class="mt-auto border-t border-black/20 p-6 md:p-12">
+    <footer class="mt-auto border-t border-black/20 p-6 md:p-12 bg-gray-50">
         <div class="max-w-xl mx-auto w-full">
             <div class="flex flex-col sm:flex-row justify-between items-start">
                 <div class="mb-6 sm:mb-0">
-                    <h2 class="text-xl font-bold tracking-tighter uppercase mb-2">
+                    <h2 class="text-xl font-bold tracking-tighter uppercase mb-2 text-theme-black">
                         Contact
                     </h2>
-                    <a href="mailto:ropefiasco@gmail.com" class="text-sm border-b border-black/30 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">
+                    <a href="mailto:ropefiasco@gmail.com" class="text-sm border-b border-black/30 pb-1 text-theme-black hover:text-gray-500 hover:border-gray-500 transition-colors">
                         ropefiasco@gmail.com
                     </a>
                 </div>
 
                 <div class="flex flex-col sm:items-end space-y-4">
-                    <div class="flex space-x-8 text-xs uppercase tracking-widest">
+                    <div class="flex space-x-8 text-xs uppercase tracking-widest text-theme-black">
                         <a href="https://www.instagram.com/ropefiasco/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">Instagram</a>
                         <a href="https://www.linkedin.com/in/jordan-roper-b525346a" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">LinkedIn</a>
                         <a href="https://x.com/ropefiasco" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">X</a>
@@ -428,6 +527,14 @@
         function showView(viewName) {
             document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden-view'));
             
+            // Show/Hide general footer based on view (Hide for BEAM)
+            const footer = document.querySelector('footer');
+            if (viewName === 'beam') {
+                footer.classList.add('hidden-view');
+            } else {
+                footer.classList.remove('hidden-view');
+            }
+
             const target = document.getElementById(viewName + '-view');
             if(target) target.classList.remove('hidden-view');
             
@@ -468,10 +575,102 @@
             document.body.removeChild(textArea);
         }
 
+        // BEAM LOGIC
+        let userState = "GUEST"; 
+        const els = {
+            credit: document.getElementById('credit-display'),
+            badge: document.getElementById('status-badge'),
+            msg: document.getElementById('status-msg'),
+            warning: document.getElementById('loan-warning'),
+            btnVerify: document.getElementById('btn-verify'),
+            btnBorrow: document.getElementById('btn-borrow'),
+            btnRepay: document.getElementById('btn-repay'),
+            successDiv: document.getElementById('state-success')
+        };
+
+        function setLoading(isLoading, message) {
+            const activeBtn = document.querySelector('#action-container button:not(.hidden)');
+            if (activeBtn) {
+                if (isLoading) {
+                    activeBtn.disabled = true;
+                    activeBtn.style.opacity = "0.7";
+                    const originalText = activeBtn.innerText;
+                    activeBtn.setAttribute('data-original', originalText);
+                    activeBtn.innerHTML = `<i class="ph-bold ph-spinner animate-spin w-5 h-5"></i> Processing...`;
+                } else {
+                    activeBtn.disabled = false;
+                    activeBtn.style.opacity = "1";
+                }
+            }
+            if (message) els.msg.innerText = message;
+        }
+
+        function handleVerify() {
+            setLoading(true, "Verifying World ID...");
+            setTimeout(() => {
+                userState = "VERIFIED";
+                updateUI();
+            }, 1500);
+        }
+
+        function handleBorrow() {
+            setLoading(true, "Disbursing 50 USDC to Wallet...");
+            setTimeout(() => {
+                userState = "BORROWED";
+                updateUI();
+            }, 1500);
+        }
+
+        function handleRepay() {
+            setLoading(true, "Processing Repayment...");
+            setTimeout(() => {
+                userState = "REPAID";
+                updateUI();
+            }, 1500);
+        }
+
+        function resetDemo() {
+            userState = "VERIFIED";
+            els.credit.innerText = "$100";
+            els.msg.innerText = "Level 2 Unlocked.";
+            els.successDiv.classList.add('hidden');
+            els.btnBorrow.classList.remove('hidden');
+            els.btnBorrow.innerHTML = `<i class="ph-bold ph-currency-dollar w-5 h-5"></i> Get $100 Instant Cash`;
+        }
+
+        function updateUI() {
+            els.btnVerify.classList.add('hidden');
+            els.btnBorrow.classList.add('hidden');
+            els.btnRepay.classList.add('hidden');
+            els.successDiv.classList.add('hidden');
+            els.warning.classList.add('hidden');
+
+            if (userState === "VERIFIED") {
+                els.credit.innerText = "$50";
+                els.badge.innerText = "HUMAN VERIFIED";
+                els.badge.className = "text-xs font-bold px-3 py-1 rounded-full border border-green-500 text-green-400";
+                els.btnBorrow.classList.remove('hidden');
+                els.btnBorrow.innerHTML = `<i class="ph-bold ph-currency-dollar w-5 h-5"></i> Get $50 Instant Cash`;
+                els.msg.innerText = "Identity Verified. Credit Unlocked.";
+            } 
+            else if (userState === "BORROWED") {
+                els.credit.innerText = "$50";
+                els.warning.classList.remove('hidden');
+                els.btnRepay.classList.remove('hidden');
+                els.btnRepay.innerHTML = `<i class="ph-bold ph-check-circle w-5 h-5"></i> Repay Loan ($52)`;
+                els.msg.innerText = "Funds Sent. Repayment Due.";
+            }
+            else if (userState === "REPAID") {
+                els.credit.innerText = "$100";
+                els.successDiv.classList.remove('hidden');
+                els.msg.innerText = "Success! Trust Score Increased.";
+            }
+        }
+
         // Router
         function handleRoute() {
             const hash = window.location.hash.replace('#', '') || 'home';
-            if (['home', 'invest', 'apparel', 'whitepaper'].includes(hash)) {
+            if (['home', 'invest', 'apparel', 'whitepaper', 'beam'].includes(hash)) {
                 showView(hash);
             } else {
                 showView('home');
@@ -480,7 +679,7 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             handleRoute();
-            calculateYield(); // Init calculator
+            if (document.getElementById('investAmount')) calculateYield(); // Init calculator if exists
         });
         window.addEventListener('hashchange', handleRoute);
     </script>
