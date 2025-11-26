@@ -695,14 +695,160 @@
                     <span class="text-xs uppercase tracking-widest text-gray-500">Interested in the technical details?</span>
                     
                     <div class="flex gap-4">
-                        <a href="mailto:ropefiasco@gmail.com?subject=Full%20BEAM%20Technical%20Whitepaper%20Request" class="text-xs font-bold uppercase tracking-widest border-b border-black hover:text-gray-500 hover:border-gray-500 transition-colors text-white border-white">
+                        <button onclick="showView('beam-whitepaper')" class="text-xs font-bold uppercase tracking-widest border-b border-black hover:text-gray-500 hover:border-gray-500 transition-colors text-white border-white">
                             Download Whitepaper
-                        </a>
-                        <a href="mailto:ropefiasco@gmail.com?subject=BEAM%20Roadmap%20Request" class="text-xs font-bold uppercase tracking-widest border-b border-black hover:text-gray-500 hover:border-gray-500 transition-colors text-white border-white">
+                        </button>
+                        <button onclick="showView('beam-roadmap')" class="text-xs font-bold uppercase tracking-widest border-b border-black hover:text-gray-500 hover:border-gray-500 transition-colors text-white border-white">
                             View Roadmap
-                        </a>
+                        </button>
                     </div>
                 </div>
+        </div>
+    </div>
+
+    <!-- NEW VIEW 7: BEAM WHITEPAPER -->
+    <div id="beam-whitepaper-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-start min-h-screen beam-theme relative overflow-y-auto beam-scroll pb-20 pt-12">
+        <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(34,197,94,0.05),transparent_70%)] fixed"></div>
+        
+        <div class="w-full max-w-3xl p-6 z-10">
+            <button onclick="showView('beam')" class="mb-8 text-xs uppercase tracking-widest text-gray-400 hover:text-white flex items-center gap-2">
+                <span>← Back to BEAM</span>
+            </button>
+
+            <div class="bg-gray-900/80 border border-gray-800 p-8 md:p-16 shadow-xl rounded-2xl">
+                <div class="mb-12 border-b border-gray-800 pb-8">
+                    <h1 class="text-3xl font-bold mb-2 text-white tracking-wide">BEAM Technical Whitepaper</h1>
+                    <p class="text-sm text-gray-400 uppercase tracking-widest">Bio-Economic Access Module</p>
+                    <p class="text-xs text-green-500 mt-2">Version 1.0 | World Chain Standard</p>
+                </div>
+
+                <div class="space-y-8 text-gray-300 font-light leading-relaxed">
+                    <!-- Abstract -->
+                    <section>
+                        <h3 class="text-lg font-bold text-white mb-3">1. Abstract</h3>
+                        <p>
+                            Decentralized Finance (DeFi) has failed to serve the 1.7 billion unbanked individuals globally due to its reliance on over-collateralization. Without a mechanism to verify unique human identity, protocols cannot offer unsecured credit without succumbing to Sybil attacks. BEAM solves this by integrating <strong>Proof of Personhood (PoP)</strong> via World ID directly into the lending stack, enabling under-collateralized micro-credit for verified humans.
+                        </p>
+                    </section>
+
+                    <!-- The Problem -->
+                    <section>
+                        <h3 class="text-lg font-bold text-white mb-3">2. The Sybil Problem in Credit</h3>
+                        <p>
+                            In traditional crypto lending, a user can generate thousands of wallet addresses. If a protocol offers an unsecured loan, a single actor can drain the liquidity pool by pretending to be thousands of borrowers. BEAM eliminates this vector by requiring biometric verification (Iris Hash) before any credit issuance. One Human = One Credit Line.
+                        </p>
+                    </section>
+
+                    <!-- The Solution -->
+                    <section>
+                        <h3 class="text-lg font-bold text-white mb-3">3. The BEAM Protocol</h3>
+                        <p class="mb-4">
+                            BEAM operates as a "Trustless Credit Union" on the World Chain L2.
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li><strong>Identity Layer:</strong> Uses the World ID SDK to generate a Zero-Knowledge Proof (ZKP) that the user is verified and unique, without revealing their actual biometric data.</li>
+                            <li><strong>Scoring Layer:</strong> A Soulbound Token (SBT) tracks repayment history. This "Trust Score" is non-transferable and acts as on-chain reputation collateral.</li>
+                            <li><strong>Liquidity Layer:</strong> Permissioned pools funded by USDC. Smart contracts automatically disperse funds upon verification and handle repayment logic.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Trust Booster -->
+                    <section>
+                        <h3 class="text-lg font-bold text-white mb-3">4. "Trust Booster" Economics</h3>
+                        <p>
+                            To accelerate trust, BEAM introduces a hybrid collateral model. Users can lock small amounts of WLD (Worldcoin) or USDC as "good faith" collateral. This reduces the protocol's risk exposure and rewards the user with accelerated Trust Score growth (2x multiplier), allowing faster access to higher credit tiers.
+                        </p>
+                    </section>
+
+                    <!-- Compliance -->
+                    <section>
+                        <h3 class="text-lg font-bold text-white mb-3">5. Regulatory Compliance (Costa Rica)</h3>
+                        <p>
+                            The pilot deployment in San José adheres to <strong>Law 9859</strong>. The protocol enforces a hard cap on Annual Percentage Rates (APR) to prevent usury, ensuring alignment with local financial consumer protection standards. BEAM positions itself not as a bank, but as a peer-to-peer mutual aid technology.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW VIEW 8: BEAM ROADMAP -->
+    <div id="beam-roadmap-view" class="view-section hidden-view flex-grow flex flex-col items-center justify-start min-h-screen beam-theme relative overflow-y-auto beam-scroll pb-20 pt-12">
+        <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_rgba(34,197,94,0.05),transparent_70%)] fixed"></div>
+        
+        <div class="w-full max-w-3xl p-6 z-10">
+            <button onclick="showView('beam')" class="mb-8 text-xs uppercase tracking-widest text-gray-400 hover:text-white flex items-center gap-2">
+                <span>← Back to BEAM</span>
+            </button>
+
+            <div class="mb-12 text-center">
+                <h1 class="text-3xl font-bold mb-2 text-white tracking-wide">Execution Roadmap</h1>
+                <p class="text-sm text-gray-400 uppercase tracking-widest">From Pilot to Protocol</p>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-700 before:to-transparent">
+                
+                <!-- Phase 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-900 text-green-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="ph-bold ph-rocket-launch"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-900/80 border border-gray-800 p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">Phase 1: Infrastructure</div>
+                            <time class="font-mono text-xs text-green-500">Weeks 1-4</time>
+                        </div>
+                        <div class="text-gray-400 text-sm">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Legal Wrapper setup (Costa Rica Law 9859).</li>
+                                <li>World ID SDK integration for "Sybil Gate."</li>
+                                <li>Liquidity Pool seeding ($5k USDC Alpha).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-700 bg-gray-900 text-gray-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="ph-bold ph-users-three"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-900/80 border border-gray-800 p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">Phase 2: Alpha Pilot</div>
+                            <time class="font-mono text-xs text-gray-500">Weeks 5-8</time>
+                        </div>
+                        <div class="text-gray-400 text-sm">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>"Uber Driver" Strategy: Onboard 50 local drivers.</li>
+                                <li>Issue first 50 micro-loans ($20 caps).</li>
+                                <li>Test "Cash-Out" rails with local merchants.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-700 bg-gray-900 text-gray-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="ph-bold ph-chart-line-up"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-900/80 border border-gray-800 p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">Phase 3: Growth</div>
+                            <time class="font-mono text-xs text-gray-500">Months 3-6</time>
+                        </div>
+                        <div class="text-gray-400 text-sm">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Deploy Soulbound Token (SBT) for credit scoring.</li>
+                                <li>Enable "Vouched Referrals" for trusted users.</li>
+                                <li>Open Liquidity Pool to Institutional LPs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -734,7 +880,7 @@
             
             // Show/Hide general footer based on view (Hide for BEAM)
             const footer = document.querySelector('footer');
-            if (viewName === 'beam') {
+            if (viewName.startsWith('beam')) {
                 footer.classList.add('hidden-view');
             } else {
                 footer.classList.remove('hidden-view');
@@ -907,7 +1053,7 @@
         // Router
         function handleRoute() {
             const hash = window.location.hash.replace('#', '') || 'home';
-            if (['home', 'invest', 'apparel', 'whitepaper', 'beam', 'projects'].includes(hash)) {
+            if (['home', 'invest', 'apparel', 'whitepaper', 'beam', 'beam-whitepaper', 'beam-roadmap', 'projects'].includes(hash)) {
                 showView(hash);
             } else {
                 showView('home');
